@@ -1,0 +1,117 @@
+@import '../../../styles/variables';
+
+.EditorCard {
+    background: linear-gradient(to bottom right, $gray, $gray);
+    text-align: center;
+    z-index: 3; 
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    transition: transform 0.5s ease, opacity 0.5s ease, width 0.5s ease, height 0.5s ease;
+
+    &.Normal{
+        position: relative;
+        padding: 5vw;
+        left: -5vw;
+        width: 100vw;
+        box-shadow: none;
+        z-index: 0; 
+    }
+    &.Top, &.Center, &.Left, &.Right, &.Bottom {
+        width: 80vw;
+        position: fixed;
+        border-radius: 10px;
+    }
+    &.Top {
+        top: 18%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    &.Center {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    &.Left {
+        top: 35%;
+        left: 1%;
+        transform: translate(0%, -50%);
+    }
+    &.Right {
+        top: 35%;
+        right: 1%;
+        transform: translate(0%, -50%);
+    }
+    &.Bottom {
+        bottom: 5%;
+        left: 50%;
+        transform: translate(-50%, 0%);
+    }
+
+    &.retracted {
+        &.Top {
+            transform: translate(-50%, -200%) scale(0.3);
+        }
+        &.Center {
+            transform: translate(100%, -50%) scale(0);
+            width: 100px;
+            height: 100px;
+        }
+        &.Left {
+            transform: translate(-100%, -50%) scale(0.3);
+            width: 100px;
+            height: 100px;
+        }
+        &.Right {
+            transform: translate(100%, -50%) scale(0.3);
+            width: 100px;
+            height: 100px;
+        }
+        &.Bottom {
+            transform: translate(-50%, 120%) scale(0.3);
+            width: 100px;
+            height: 100px;
+        }
+    }
+
+    header {
+        font-size: $fontSizeLargest;
+        margin-bottom: 1.5rem;
+        position: relative;
+        
+        h2 {
+            display: inline;
+            padding: 4px;
+            border-bottom: 1px solid $bluePrimary;
+            color: $bluePrimary;
+        }
+
+        .closeBtn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: $bluePrimary;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            line-height: 18px;
+            z-index: 4; // Ensure the button is always on top
+        }
+    }
+
+    .content {
+        text-align: center;
+        padding: 16px;
+        font-size: $fontSizeLarge;
+        width: 100%;
+    }
+
+    footer {
+
+    }
+}

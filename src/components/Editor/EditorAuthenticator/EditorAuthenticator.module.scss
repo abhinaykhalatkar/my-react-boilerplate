@@ -1,0 +1,146 @@
+@import '../../../styles/variables';
+
+
+.authForm {
+    min-width: 350px;
+    background: linear-gradient(to bottom right, $gray, $gray);
+    text-align: center;
+    z-index: 5;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: fixed;
+    padding: 2rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+    .successWarning{
+        color: rgb(37, 158, 37);
+        font-weight: $fontW_bold;
+        font-size: large;
+    }
+    .failWarning{
+        color: rgb(238, 66, 66);
+        font-weight: $fontW_bold;
+        font-size: large;
+    }
+
+    .inp {
+        font-size: $fontSizeLargerPlus;
+        position: relative;
+        margin: auto;
+        width: 100%;
+        max-width: 280px;
+        height: 53px;
+      }
+      .inp .border {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 18px;
+        fill: none;
+      }
+      .inp .border path {
+        stroke: #c8ccd4;
+        stroke-width: 2;
+      }
+      .inp .border path d {
+        transition: all 0.2s ease;
+      }
+      .inp .check {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        fill: none;
+        transform: translate(0, 9px) scale(0);
+        transition: all 0.3s cubic-bezier(0.5, 0.9, 0.25, 1.3);
+        transition-delay: 0.15s;
+      }
+      .inp .check path {
+        stroke: $bluePrimary;
+        stroke-width: 2;
+      }
+      .inp input {
+        -webkit-appearance: none;
+        width: 100%;
+        border: 0;
+        padding: 0;
+        height: 48px;
+        font-size: $fontSizeLargerPlus;
+        background: none;
+        border-radius: 0;
+        color: $blueSecondary;
+        transition: all 0.15s ease;
+      }
+    
+      .inp input:focus {
+        outline: none;
+      }
+      .inp input:focus + .border path {
+        stroke: $bluePrimary;
+      }
+      .inp input:valid + .border path {
+        animation: elasticInput 1s ease forwards;
+      }
+      .inp input:valid + .border + .check {
+        transform: translate(0, 0) scale(1);
+      }
+      ::placeholder {
+        color: #9098a9;
+      }
+      @-moz-keyframes elasticInput {
+        33% {
+          d: path("M0,12 L226,12 C220,12 220.666667,12 228,12 C239,12 245,1 253,1 C261,1 268,12 278,12 C284.666667,12 285.333333,12 280,12");
+        }
+        66% {
+          d: path("M0,12 L226,12 C220,12 220.666667,12 228,12 C239,12 245,17 253,17 C261,17 268,12 278,12 C284.666667,12 285.333333,12 280,12");
+        }
+      }
+      @-webkit-keyframes elasticInput {
+        33% {
+          d: path("M0,12 L226,12 C220,12 220.666667,12 228,12 C239,12 245,1 253,1 C261,1 268,12 278,12 C284.666667,12 285.333333,12 280,12");
+        }
+        66% {
+          d: path("M0,12 L226,12 C220,12 220.666667,12 228,12 C239,12 245,17 253,17 C261,17 268,12 278,12 C284.666667,12 285.333333,12 280,12");
+        }
+      }
+      @-o-keyframes elasticInput {
+        33% {
+          d: path("M0,12 L226,12 C220,12 220.666667,12 228,12 C239,12 245,1 253,1 C261,1 268,12 278,12 C284.666667,12 285.333333,12 280,12");
+        }
+        66% {
+          d: path("M0,12 L226,12 C220,12 220.666667,12 228,12 C239,12 245,17 253,17 C261,17 268,12 278,12 C284.666667,12 285.333333,12 280,12");
+        }
+      }
+      @keyframes elasticInput {
+        33% {
+          d: path("M0,12 L226,12 C220,12 220.666667,12 228,12 C239,12 245,1 253,1 C261,1 268,12 278,12 C284.666667,12 285.333333,12 280,12");
+        }
+        66% {
+          d: path("M0,12 L226,12 C220,12 220.666667,12 228,12 C239,12 245,17 253,17 C261,17 268,12 278,12 C284.666667,12 285.333333,12 280,12");
+        }
+      }
+.btnBlock{
+  .submit,.cancel{
+    font-size: $fontSizeLarger;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    margin: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .cancel{
+    background-color: #ff0e0e;
+  }
+  .submit{
+    background-color: $bluePrimary;
+  }
+}
+
+      
+}

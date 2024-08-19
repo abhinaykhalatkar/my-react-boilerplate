@@ -1,0 +1,60 @@
+@import '../../styles/variables';
+
+.scrollToTop {
+    position: relative;
+    top: 65%;
+    // width: 1%;
+    width: 60px;
+    right: 5px;
+    // padding: 10px 15px;
+    font-size: 24px;
+    background-color: $bluePrimary;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+
+    img {
+        height: 50px;
+ 
+    }
+
+    &:hover {
+        opacity: 1;
+    }
+@media (max-width:($miniTab)) {
+ 
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    /* align-content: center; */
+    justify-content: center;
+    align-items: center;
+    
+}
+    @media (min-width: ($desktop)) {
+       
+       position: fixed;
+        img {
+            height: 50px;
+            vertical-align: middle;
+            // width: 50px;
+        }
+    }
+    @media (min-width:($tablet)) {
+        position: fixed;
+        
+    }
+    @media (max-width: ($miniTab))  {
+        margin: 0 25%;
+    }
+    @media (max-width: ($mobile)) {
+        margin-top: 10px;
+    }
+
+    // @media screen and (min-width:$miniTab) and (max-width:$desktop) {
+    //     margin-right: 30px;
+    // }
+}

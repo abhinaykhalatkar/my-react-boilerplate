@@ -1,0 +1,11 @@
+@import '../../styles/variables';
+
+
+$editorPrimaryColor: if($primaryColor != null, $primaryColor, #1b75cf);
+$editorPrimaryRed: if($primaryRed != null, $primaryColor, #ff0e0e);
+$gray: if($gray != null, $gray, #F2F2F2);
+$fontW_medium:if($fontW_medium != null, $fontW_medium, 600);
+$fontW_bold:if($fontW_bold != null, $fontW_bold, 800);
+$fontSizeRegular:if($fontSizeRegular != null, $fontSizeRegular, 1.1rem); 
+$fontSizeLarger:if($fontSizeLarger != null, $fontSizeLarger, 1.3rem); 
+$fontSizeLargerPlus:if($fontSizeLargerPlus != null, $fontSizeLargerPlus, 1.4rem); 

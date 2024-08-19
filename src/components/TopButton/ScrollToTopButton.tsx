@@ -1,9 +1,9 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import styles from "./ScrollToTopButton.module.scss";
+import { FaAnglesDown } from "react-icons/fa6";
 
 // import doubleUpIcon from "../../assets/doubleUpIcon.png";
-import doubleUpIcon from "../../assets/double-up.svg";
 
 import { useLocation } from 'react-router-dom';
 
@@ -44,11 +44,12 @@ const ScrollToTopButton: React.FC = () => {
 
   return isVisible ? (
     <button onClick={scrollToTop} className={styles.scrollToTop}>
-      <img
+      <FaAnglesDown />
+      {/* <img
         src={doubleUpIcon}
         alt="go to the top of page"
         title="go to the top of page"
-      />
+      /> */}
     </button>
   ) : null;
 };

@@ -2,13 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import { BrowserRouter } from "react-router-dom";
+import { AccessibilityProvider } from "./Context/accessibilityContext";
+import { HelmetProvider } from "react-helmet-async";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+const helmetContext = {};
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <HelmetProvider context={helmetContext}>
+    <AccessibilityProvider>
+    <BrowserRouter>
+      <App />
+      </BrowserRouter>
+    </AccessibilityProvider>
+  </HelmetProvider>
 );
 

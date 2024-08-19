@@ -24,7 +24,9 @@
     "src"
   ],
   "exclude": [
-    "src/components/Editor",
-    "src/components/AlertModule"
+    "src/Components/Editor",
+    "src/Components/AlertModule",
+    "src/Components/TopButton",
+    "src/Components/Backdrop"
   ]
 }

@@ -3,6 +3,8 @@ import { useEffect, useState ,useRef} from "react";
 import styles from "./EditorAuthenticator.module.scss";
 import BackDrop from "../../Backdrop/BackDrop";
 import { EditorContent } from "../Editor/Editor";
+import { editorDomainAdd } from "../EditorMain";
+
 interface EditorAuthenticatorProps {
   setIsEditorAccessGranted: (value: boolean) => void;
   showEditorAuthenticator: boolean;
@@ -27,7 +29,7 @@ interface EditorAuthenticatorProps {
   const handleSubmit = async (event:React.FormEvent<HTMLFormElement>) => {
     event.preventDefault(); // Prevents page reload
     try {
-        const response = await fetch('https://www.scribble-sandbox.de/verify-password', {
+        const response = await fetch(`${editorDomainAdd}/verify-password`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

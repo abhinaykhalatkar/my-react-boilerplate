@@ -1,8 +1,9 @@
-"use client";
+
 import styles from "./EditorOutputComponent.module.scss";
 import { EditorContent } from "../Editor/Editor";
 import { useState, useEffect } from "react";
 import DOMPurify from 'dompurify';
+import { editorDomainAdd } from "../EditorMain";
 
 export enum modalTypeEn {
   Normal = "Normal",
@@ -28,7 +29,7 @@ export default function EditorOutputComponent() {
   useEffect(() => {
     async function fetchContent() {
       try {
-        const response = await fetch('https://www.scribble-sandbox.de/fetch-editor-content', {
+        const response = await fetch(`${editorDomainAdd}/fetch-editor-content`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -92,14 +93,15 @@ export default function EditorOutputComponent() {
             <article
               className={`${styles.EditorCard} ${styles[editorState.editorOutputPosition]} ${isRetracted ? styles.retracted : ''}`}
             >
-              {editorState.editorHead && (
-                <header>
-                  <h2>{editorState.editorHead}</h2>
-                  <button className={styles.closeBtn} onClick={handleToggleRetract}>
-                    {isRetracted ? '>' : 'X'}
-                  </button>
-                </header>
-              )}
+
+              <header>
+                {editorState.editorHead && (
+                  <h2>{editorState.editorHead}</h2>)}
+                <button className={styles.closeBtn} onClick={handleToggleRetract}>
+                  {isRetracted ? '>' : 'X'}
+                </button>
+              </header>
+
 
               {editorState.editorSubheading && (
                 <h3>{editorState.editorSubheading}</h3>

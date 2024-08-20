@@ -1,11 +1,12 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import Quill from 'quill';
 import 'quill/dist/quill.snow.css'; // Import Quill styles
 import styles from "./Editor.module.scss";
 import BackDrop from "../../Backdrop/BackDrop";
 import AlertModule from "../../AlertModule/AlertModule";
 import { modalTypeEn } from "../EditorOutputComponent/EditorOutputComponent";
+import { editorDomainAdd } from "../EditorMain";
 
 interface EditorAuthenticatorProps {
   isEditorAccessGranted: boolean;
@@ -72,7 +73,7 @@ const Editor: React.FC<EditorAuthenticatorProps> = ({ isEditorAccessGranted, set
     try {
       const token = localStorage.getItem('jwtToken'); // Assuming the JWT token is stored in localStorage
   
-      const response = await fetch('https://www.scribble-sandbox.de/save-editor-content', {
+      const response = await fetch(`${editorDomainAdd}/save-editor-content`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

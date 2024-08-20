@@ -16,7 +16,7 @@
         z-index: 0; 
     }
     &.Top, &.Center, &.Left, &.Right, &.Bottom {
-        width: 80vw;
+        max-width: 80vw;
         position: fixed;
         border-radius: 10px;
     }

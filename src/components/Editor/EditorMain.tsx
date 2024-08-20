@@ -54,4 +54,6 @@ export default function EditorMain() {
 
 }
 
-export const editorDomainAdd:string="https://www.scribble-sandbox.de"
+export const editorDomainAdd:string="https://node-editor.scribble-systems.com"
+
+// export const editorDomainAdd:string="https://www.scribble-sandbox.de"// for tetsing on sandbox

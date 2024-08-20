@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import "./AccessibilityMenu.scss";
-import accessIcon from "../../Assets/accessibility-icon.svg";
-import arrowIcon from "../../Assets/double-arrow-right.svg";
+import { FaAnglesRight, FaUniversalAccess } from "react-icons/fa6";
+import "../../Assets/accessibility-icon.svg";
 import { AccessibilityContext } from "../../Context/accessibilityContext";
 export default function AccessibilityMenu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,7 +13,7 @@ export default function AccessibilityMenu() {
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
-  function adjustFontSize(val) {
+  function adjustFontSize(val: boolean) {
     if (val && fontSize < 5) {
       setFontSize(fontSize + 1);
       increaseFontSize();
@@ -28,21 +28,15 @@ export default function AccessibilityMenu() {
       {isOpen ? (
         <></>
       ) : (
-        <img
-          src={accessIcon}
-          className="accessibility-icon"
-          alt="accessibility menu"
-          onClick={toggleMenu}
-        />
+        <div onClick={toggleMenu} className="accessibility-icon" title="close accessibility menu"
+          aria-label="close accessibility menu" >
+          <FaUniversalAccess />
+        </div>
       )}
       <div className={`menu-content ${isOpen ? "open" : ""}`}>
-        <div>
-          <img
-            src={arrowIcon}
-            className="close-Icon"
-            alt="close accessibility menu"
-            onClick={toggleMenu}
-          />
+        <div onClick={toggleMenu} className={'close_Icon'} title="close accessibility menu"
+          aria-label="close accessibility menu">
+          <FaAnglesRight />
         </div>
         <div className="font-size-func">
           <div

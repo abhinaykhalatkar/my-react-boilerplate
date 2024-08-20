@@ -53,3 +53,5 @@ export default function EditorMain() {
   );
 
 }
+
+export const editorDomainAdd:string="https://www.scribble-sandbox.de"

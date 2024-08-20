@@ -1,9 +1,9 @@
 import { useContext, useEffect } from 'react';
 import { AccessibilityContext } from './Context/accessibilityContext';
 import './App.scss';
-
 import AccessibilityMenu from './Components/AccessibilityMenu/AccessibilityMenu';
 import RenderRoutes from './Pages/router';
+import ScrollToTopFunction from "./Components/TopButton/ScrollToTopButton"
 
 function App() {
   const {fontSizeMag} = useContext(AccessibilityContext);
@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="App">
       {/* <EditorMain/> */}
-
+      <ScrollToTopFunction />
       <AccessibilityMenu />
       <RenderRoutes />
     </div>

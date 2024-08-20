@@ -1,14 +1,14 @@
 @import '../../styles/variables';
 
 .scrollToTop {
-    position: relative;
-    top: 65%;
-    // width: 1%;
-    width: 60px;
-    right: 5px;
-    // padding: 10px 15px;
-    font-size: 24px;
-    background-color: $bluePrimary;
+    position: fixed;
+    bottom: 1%;
+    right: 1%;
+    height: 40px;
+    width: 40px;
+    padding: 10px 10px;
+    font-size: 1rem;
+    background-color: $primaryColor;
     color: white;
     border: none;
     border-radius: 5px;
@@ -16,29 +16,24 @@
     opacity: 0.7;
     transition: opacity 0.3s;
 
-    img {
-        height: 50px;
- 
-    }
-
     &:hover {
         opacity: 1;
     }
-@media (max-width:($miniTab)) {
+// @media (max-width:($miniTab)) {
  
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    /* align-content: center; */
-    justify-content: center;
-    align-items: center;
+//     display: flex;
+//     flex-direction: row;
+//     flex-wrap: nowrap;
+//      align-content: center; 
+//     justify-content: center;
+//     align-items: center;
     
-}
+// }
     @media (min-width: ($desktop)) {
        
        position: fixed;
         img {
-            height: 50px;
+            // height: 50px;
             vertical-align: middle;
             // width: 50px;
         }
@@ -54,7 +49,4 @@
         margin-top: 10px;
     }
 
-    // @media screen and (min-width:$miniTab) and (max-width:$desktop) {
-    //     margin-right: 30px;
-    // }
 }

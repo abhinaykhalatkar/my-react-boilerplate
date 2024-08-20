@@ -2,7 +2,6 @@
 
 .accessibility-menu {
     position: fixed;
-    bottom: 1%;
     right: -100%;
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -12,42 +11,45 @@
 }
 
 .accessibility-menu.open {
-    left: calc(100vw - 310px);
+    left: calc(100vw - 360px);
     // right: 0;
 }
 
 .accessibility-icon {
+    color: $primaryColor;
     position: fixed;
-    bottom: 1%;
-    right: 20px;
+    bottom: 7%;
+    right: 1.2%;
     transform: translateY(-50%);
     z-index: 3;
+    font-size: 50px;
+    height: 40px;
+    width: 40px;
 
 }
 
 .menu-content {
     position: fixed;
     display: flex;
-    bottom: 1%;
+    width: 300px;
     padding: 20px 20px 20px 0;
     z-index: 4;
     background-color: #F0F0F0;
     border-radius: 5px;
     justify-content: space-between;
-    align-items: center;
-    transition: opacity 0.3s ease-in, transform 0.3s ease-in;
+    // align-items: center;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-
     opacity: 0;
     transform: translateX(100%);
-
     &.open {
         opacity: 1;
         transform: translateX(0);
+        bottom: 5%;
     }
 
-    .close-Icon {
-        margin-left: -12px;
+    .close_Icon {
+        font-size: 1.5rem;
     }
 
     .font-size-func {
@@ -61,7 +63,7 @@
 
         .circle {
             position: relative;
-            border: 2px solid $bluePrimary;
+            border: 2px solid $primaryColor;
             border-radius: 50%;
             height: 20px;
             width: 20px;
@@ -76,7 +78,7 @@
             .hor-line,
             .ver-line {
                 position: absolute;
-                background-color: $bluePrimary;
+                background-color: $primaryColor;
                 left: 50%;
                 top: 50%;
                 transform: translate(-50%, -50%);

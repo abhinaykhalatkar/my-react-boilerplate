@@ -61,7 +61,7 @@ interface EditorAuthenticatorProps {
 useEffect(()=>{},[grantedWarning])
   return (
     <>
-      <BackDrop showBackdrop={showEditorAuthenticator} setShowBackdrop={setShowEditorAuthenticator}/>
+      <BackDrop showBackdrop={showEditorAuthenticator} setShowBackdrop={setShowEditorAuthenticator}>
       <form className={styles.authForm} onSubmit={handleSubmit}>
         <h2>Enter Editor Password</h2>
         <label htmlFor="inp" className={styles.inp}>
@@ -79,6 +79,7 @@ useEffect(()=>{},[grantedWarning])
         <button onClick={()=>{setShowEditorAuthenticator(false)}} className={styles.cancel}> Cancel</button>
         </div>
       </form>
+      </BackDrop>
     </>
 
   );

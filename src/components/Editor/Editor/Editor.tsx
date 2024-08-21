@@ -99,7 +99,7 @@ const Editor: React.FC<EditorAuthenticatorProps> = ({ isEditorAccessGranted, set
   return (
     <>
       <AlertModule alertContent="Editor Access granted for a session of 60 min" visibleTime={3} />
-      <BackDrop showBackdrop={isEditorAccessGranted} setShowBackdrop={() => { }} />
+      <BackDrop showBackdrop={isEditorAccessGranted} setShowBackdrop={() => { }} >
       <div className={styles.editorModule}>
         <div className={styles.switchWrapper}>
           <label className={styles.switch}>
@@ -195,6 +195,7 @@ const Editor: React.FC<EditorAuthenticatorProps> = ({ isEditorAccessGranted, set
           </button>
         </div>
       </div>
+      </BackDrop >
     </>
   );
 };

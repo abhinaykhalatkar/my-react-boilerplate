@@ -1,10 +1,28 @@
-.backDrop{
+.backDrop {
     position: fixed;
     top: 0;
     left: 0;
     height: 100vh;
     width: 100vw;
     background: rgba(0, 0, 0, 0.35);
-    filter: blur(100px);
     z-index: 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    // This creates the blur effect on the backdrop
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: inherit;
+        backdrop-filter: blur(10px); // Adjust the blur amount as needed
+        z-index: -1;
+    }
+    > * {
+        z-index: 1;
+    }
 }

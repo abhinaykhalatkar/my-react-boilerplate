@@ -1,0 +1,41 @@
+@import '../../styles/variables';
+.breadcrumb {
+    font-size: $fontSizeLarge;
+    margin-bottom: 1rem;
+    font-weight: $fontW_medium;
+  }
+  
+  .breadcrumb ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+  }
+  
+  .breadcrumb li {
+    display: inline;
+    color:$primaryColor;
+  }
+  
+  .breadcrumb li + li:before {
+    content: ' > ';
+    padding: 0 8px;
+    color:$primaryColor;
+  }
+  
+  .breadcrumb li a {
+    text-decoration: none;
+    color:  $primaryColor;
+    text-transform: capitalize;
+  }
+  
+  .breadcrumb li a:hover {
+    text-decoration: underline;
+  }
+  
+  .breadcrumb li span {
+    color:$primaryColor;
+    text-transform: capitalize;
+
+  }
+  

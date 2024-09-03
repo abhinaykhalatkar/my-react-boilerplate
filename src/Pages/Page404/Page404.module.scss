@@ -1,0 +1,12 @@
+@import '../../styles/variables';
+
+.Page404{
+    height: 50vh;
+    margin-top: 20vh;
+    h2{
+        color: $secondaryColor;
+    }
+    .link{
+color: $primaryColor;
+    }
+}

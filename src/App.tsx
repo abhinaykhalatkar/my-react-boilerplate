@@ -2,9 +2,10 @@ import { useContext, useEffect } from 'react';
 import { AccessibilityContext } from './Context/accessibilityContext';
 import './App.scss';
 import AccessibilityMenu from './Components/AccessibilityMenu/AccessibilityMenu';
-import RenderRoutes from './Pages/router';
+import AppRoutes from './Pages/router';
 import ScrollToTopFunction from "./Components/TopButton/ScrollToTopButton"
-import EditorMain from './Components/Editor/EditorMain';
+// import EditorMain from './Components/Editor/EditorMain';
+
 function App() {
   const {fontSizeMag} = useContext(AccessibilityContext);
 
@@ -13,10 +14,10 @@ function App() {
   }, [fontSizeMag]);
   return (
     <div className="App">
-      <EditorMain/>
+      {/* <EditorMain/> */}
       <ScrollToTopFunction />
       <AccessibilityMenu />
-      <RenderRoutes />
+      <AppRoutes />
     </div>
   );
 }

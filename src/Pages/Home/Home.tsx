@@ -1,13 +1,23 @@
 import React from 'react';
 import styles from './Home.module.scss';
-import EditorOutputComponent from '../../Components/Editor/EditorOutputComponent/EditorOutputComponent';
+// import EditorOutputComponent from '../../Components/Editor/EditorOutputComponent/EditorOutputComponent';
+// import Modal from '../../Components/Modal/Modal';
+import { useState } from 'react';
 // import Breadcrumbs from '../../Components/Breadcrumbs/Breadcrumbs';
 
 
 const Home: React.FC = () => {
+    // const [isModalOpen,setIsModalOpen]=useState(false)
+    // function handleSetModalOpen(){
+    //     setIsModalOpen(!isModalOpen)
+    // }
+    // useEffect(()=>{},[isModalOpen])
     return (
         <div className={styles.container}>
-            <EditorOutputComponent />
+            {/* <button onClick={handleSetModalOpen}><h1>open</h1></button> */}
+            {/* <EditorOutputComponent /> */}
+            {/* <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}
+            content={<><h1>Hello</h1></>}></Modal> */}
         </div>
     );
 };

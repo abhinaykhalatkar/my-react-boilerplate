@@ -1,0 +1,23 @@
+@import '../../styles/variables';
+.vitaModule{
+    width: 80vw;
+    max-width: 1000px;
+    height: 80vh;
+    overflow-Y: scroll;
+    background-color: $white;
+    display: grid;
+    
+    .closeButton {
+        justify-self: flex-end;
+        background: none;
+        border: none;
+        color: $blueSecondary;
+        font-size: $fontSizeRegular;
+        font-weight: $fontW_medium;
+        cursor: pointer;
+        position: absolute;
+        margin-top: -30px; 
+        margin-right: -20px;
+        
+      }
+    }

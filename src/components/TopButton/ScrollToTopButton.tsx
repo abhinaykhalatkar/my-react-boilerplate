@@ -22,6 +22,12 @@ const scrollToTop = () => {
     behavior: "smooth",
   });
 };
+export const scrollToElement = (id: string) => {
+  const element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+};
 
 
 const ScrollToTopButton: React.FC = () => {

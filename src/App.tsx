@@ -5,7 +5,7 @@ import AccessibilityMenu from './Components/AccessibilityMenu/AccessibilityMenu'
 import AppRoutes from './Pages/router';
 import ScrollToTopFunction from "./Components/TopButton/ScrollToTopButton"
 // import EditorMain from './Components/Editor/EditorMain';
-
+import Header from './Components/Header/Header';
 function App() {
   const {fontSizeMag} = useContext(AccessibilityContext);
 
@@ -17,6 +17,7 @@ function App() {
       {/* <EditorMain/> */}
       <ScrollToTopFunction />
       <AccessibilityMenu />
+      <Header/>
       <AppRoutes />
     </div>
   );

@@ -1,10 +1,11 @@
-import React, { useState, useContext } from "react";
+import { useState, useContext ,useEffect} from "react";
 import "./AccessibilityMenu.scss";
 import { FaAnglesRight, FaUniversalAccess } from "react-icons/fa6";
 import "../../Assets/accessibility-icon.svg";
 import { AccessibilityContext } from "../../Context/accessibilityContext";
 export default function AccessibilityMenu() {
   const [isOpen, setIsOpen] = useState(false);
+  //default font mag size
   const [fontSize, setFontSize] = useState(1);
 
   const { decreaseFontSize, increaseFontSize } =
@@ -22,6 +23,14 @@ export default function AccessibilityMenu() {
       decreaseFontSize();
     }
   }
+  useEffect(()=>{
+    let count = 0;
+    //to set the default font size
+    while(count<fontSize){
+      increaseFontSize();
+      count++
+    }
+  },[])
 
   return (
     <div className={`accessibility-menu ${isOpen ? "open" : ""}`}>

@@ -7,7 +7,7 @@ import ScrollToTopFunction from "./Components/TopButton/ScrollToTopButton"
 // import EditorMain from './Components/Editor/EditorMain';
 import Header from './Components/Header/Header';
 function App() {
-  const {fontSizeMag} = useContext(AccessibilityContext);
+  const { fontSizeMag } = useContext(AccessibilityContext);
 
   useEffect(() => {
     document.documentElement.style.fontSize = `${fontSizeMag}px`;
@@ -17,7 +17,7 @@ function App() {
       {/* <EditorMain/> */}
       <ScrollToTopFunction />
       <AccessibilityMenu />
-      <Header/>
+      <Header />
       <AppRoutes />
     </div>
   );

@@ -2,6 +2,8 @@ import { ReactElement } from "react";
 import Page404 from "./Page404/Page404";
 import Home from "./Home/Home";
 import SiteMapPage from "./SiteMapPage/SiteMapPage";
+import Datenschutz from "./Datenschutz/Datenschutz";
+import Impressum from "./Impressum/Impressum";
 
 
 export interface RouteData {
@@ -24,16 +26,13 @@ const routesData: RouteData[] = [
         element: <Home />,
         navName: "Start",
     },
-    {
-        path: "/",
-        element: <Home />,
-        navName: "Start",
-    },
+
     {
         path: "/Site-Navigation",
         element: <SiteMapPage />,
-        addToNav: false,
+        addToNav: true,
         addToSiteMap:false,
+        navName: "Site-Map",
     },
     //example for subRoutes
     // {
@@ -47,6 +46,18 @@ const routesData: RouteData[] = [
     //         { path: "/platin", addToNav: true,element: <Platin />, navName: "Platin" },
     //     ],
     // },
+    {
+        path: "/datenschutz",
+        element: <Datenschutz />,
+        addToNav: true,
+        navName: "Datenschutz",
+    },
+    {
+        path: "/impressum",
+        element: <Impressum />,
+        addToNav: true,
+        navName: "Impressum",
+    },
     {
         path: "*",
         element: <Page404 />,

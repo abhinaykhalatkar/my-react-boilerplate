@@ -20,7 +20,7 @@ const RenderRoutes = (routes: RouteData[], parentPath: string = ""): ReactElemen
         {route.subRoutes && (
           <>
             {/* Render the parent element only when the exact parent path matches */}
-            <Route index element={route.element || <Page404 />} /> 
+            <Route index element={route.element || <Page404 />} />
             {RenderRoutes(route.subRoutes, fullPath)}
           </>
         )}
@@ -31,10 +31,12 @@ const RenderRoutes = (routes: RouteData[], parentPath: string = ""): ReactElemen
 
 const AppRoutes = () => {
   return (
-    <Routes>
-      {RenderRoutes(routesData)}
-      <Route path="*" element={<Page404 />} /> {/* Fallback for any undefined route */}
-    </Routes>
+    <div className="container">
+      <Routes>
+        {RenderRoutes(routesData)}
+        <Route path="*" element={<Page404 />} /> {/* Fallback for any undefined route */}
+      </Routes>
+    </div>
   );
 };
 

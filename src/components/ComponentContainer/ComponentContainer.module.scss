@@ -1,0 +1,39 @@
+@import '../../styles/variables';
+
+.container {
+
+margin-top: 4rem;
+margin-left: auto;
+margin-right: auto;
+text-align: left;
+
+        .heading {
+            font-size: $fontSizeLarge;
+            margin-bottom: 15px;
+            color: $secondaryColor;
+            font-weight: $fontW_medium;
+            
+        }
+
+        .line {
+            display: block;
+            width: 51px;
+            height: 5px;
+            background-color: $primaryColor;
+            border: 4px;
+
+        }
+        .subHeading{
+            font-size: $fontSizeLargest;
+            font-weight: $fontW_medium;
+        }
+        .content{
+            margin-top: 3rem;
+            ul{
+                li{
+                    margin-bottom: 1rem;
+                    line-height: 1.5;
+                }
+            }
+        }
+}

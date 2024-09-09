@@ -25,6 +25,11 @@ const routesData: RouteData[] = [
         navName: "Start",
     },
     {
+        path: "/",
+        element: <Home />,
+        navName: "Start",
+    },
+    {
         path: "/Site-Navigation",
         element: <SiteMapPage />,
         addToNav: false,

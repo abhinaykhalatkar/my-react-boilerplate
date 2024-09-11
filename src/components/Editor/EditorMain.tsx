@@ -55,6 +55,6 @@ export default function EditorMain() {
 }
 
 //add current domain to the cors list in node back end
-export const editorDomainAdd:string="https://node-editor.scribble-systems.com:4056"
+export const editorDomainAdd:string="https://node-editor.scribble-medienproduktion.de"
 
 // export const editorDomainAdd:string="https://www.scribble-sandbox.de"// for tetsing on sandbox

@@ -2,7 +2,7 @@
 .vitaModule{
     width: 80vw;
     max-width: 1000px;
-    height: 80vh;
+    max-height: 80vh;
     overflow-Y: scroll;
     background-color: $white;
     display: grid;
@@ -18,6 +18,7 @@
         position: absolute;
         margin-top: -30px; 
         margin-right: -20px;
+        z-index: 11;
         
       }
     }

@@ -24,7 +24,7 @@ const routesData: RouteData[] = [
     {
         path: "/",
         element: <Home />,
-        navName: "Start",
+        navName: "Home",
     },
 
     {
@@ -35,17 +35,17 @@ const routesData: RouteData[] = [
         navName: "Site-Map",
     },
     //example for subRoutes
-    // {
-    //     path: "/check-up",
-    //     // element: <CheckUpMain />,
-    //     navName: "Check-ups",
-    //     subRoutes: [
-    //         { path: "/bronze", element: <Bronze />, navName: "Bronze", },
-    //         { path: "/silber", element: <Silber />, navName: "Silber" },
-    //         { path: "/gold",addToNav: true, element: <Gold />, navName: "Gold" },
-    //         { path: "/platin", addToNav: true,element: <Platin />, navName: "Platin" },
-    //     ],
-    // },
+    {
+        path: "/Test-Link",
+        // element: <CheckUpMain />,
+        navName: "Drop Down",
+        subRoutes: [
+            { path: "/subLink1", element: <SiteMapPage />, navName: "Link 1", },
+            { path: "/subLink2", element: <SiteMapPage />, navName: "Link 2" },
+            { path: "/subLink3",addToNav: true, element: <SiteMapPage />, navName: "Link 3" },
+            { path: "/subLink4", addToNav: true,element: <SiteMapPage />, navName: "Link 4" },
+        ],
+    },
     {
         path: "/datenschutz",
         element: <Datenschutz />,

@@ -5,10 +5,12 @@ import { motion } from 'framer-motion';
 import BackDrop from '../Backdrop/BackDrop';
 
 export interface ModalProps {
-    content?: JSX.Element;
+    children?: React.ReactNode;
     isModalOpen: boolean;
-    setIsModalOpen: (value: boolean) => void;
-    closeBtnText?:string;
+    setIsModalOpen: ((value: boolean) => void) | (() => void);
+    closeBtnText?: string;
+    className?: string;
+    closeBtnClass?: string;
 }
 
 const animationVariants = {
@@ -34,21 +36,21 @@ const animationVariants = {
     },
 };
 
-const Modal: React.FC<ModalProps> = ({ isModalOpen, setIsModalOpen, content=<h2>Vita Content Goes Here</h2> ,closeBtnText}) => {
+const Modal: React.FC<ModalProps> = ({ className, closeBtnClass, isModalOpen, setIsModalOpen, children = <h2>Vita Content Goes Here</h2>, closeBtnText }) => {
     return (
         <>
             <BackDrop showBackdrop={isModalOpen} setShowBackdrop={setIsModalOpen}>
                 <motion.div
-                    className={styles.vitaModule}
+                    className={`${styles.vitaModule} ${className && className}`}
                     variants={animationVariants}
                     initial="hidden"
                     animate="visible"
                     exit="exit"
                 >
-                    <div className={styles.closeButton} onClick={() => setIsModalOpen(false)}>
-                       {closeBtnText && closeBtnText} <FaX />
+                    <div className={`${styles.closeButton} ${closeBtnClass}`} onClick={() => setIsModalOpen(false)}>
+                        {closeBtnText && closeBtnText} <FaX />
                     </div>
-                    {content}
+                    {children && children}
                 </motion.div>
             </BackDrop>
         </>

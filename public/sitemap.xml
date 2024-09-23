@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url><loc>https://www.google.com/</loc><changefreq>monthly</changefreq><priority>1</priority></url>
+<url><loc>https://www.google.com/Test-Link</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.google.com/subLink1</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.google.com/subLink2</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.google.com/subLink3</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.google.com/subLink4</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.google.com/datenschutz</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.google.com/impressum</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+</urlset>

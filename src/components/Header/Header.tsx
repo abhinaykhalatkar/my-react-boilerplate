@@ -5,7 +5,7 @@ import styles from './Header.module.scss';
 import companyLogo from '../../logo.svg';
 import { FaArrowRightLong, FaArrowUpLong, FaPhone, FaImage } from 'react-icons/fa6';
 import TeamIcon from '../../logo.svg';
-import { companyPhoneNumber } from '../../contactInfo';
+import { companyPhoneNumber } from '../../Global-Info';
 import { AccessibilityContext } from '../../Context/accessibilityContext';
 // import { ModalsStateContext } from '../../Context/ModalContext';
 import Sidebar from '../Sidebar/Sidebar';
@@ -112,7 +112,7 @@ const Header: React.FC = () => {
                   animate={{ rotate: dropdownStates[fullPath] ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <FaArrowUpLong className={styles.svgIconsR} />
+                  <FaArrowUpLong className={`${styles.svgIconsR} ${styles.subRouteIcon}`} />
                 </motion.div>
               </span>
 
@@ -162,7 +162,8 @@ const Header: React.FC = () => {
           <div className={styles.topBar}>
             <div className={styles.actions}>
               <Link to="/team" className={styles.actionLink}>
-                <img src={TeamIcon} className={styles.svgIconsR} alt="Team Icon" /> Team
+                {/* <img src={TeamIcon} className={styles.svgIconsR} alt="Team Icon" />  */}
+                Team
               </Link>
               <Link to="/einblicke" className={styles.actionLink}>
                 <FaImage className={styles.svgIconsR} /> Einblicke
@@ -171,7 +172,7 @@ const Header: React.FC = () => {
                 <FaPhone className={styles.svgIconsR} /> {companyPhoneNumber}
               </a>
               <div className={styles.bookButton} onClick={()=>{alert("clicked")}}>
-                Termin buchen
+                Contact Form
               </div>
             </div>
             <button className={styles.mobileMenuButton} onClick={toggleSidebar}>

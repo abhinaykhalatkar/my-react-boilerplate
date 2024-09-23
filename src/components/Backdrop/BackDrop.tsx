@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 interface BackDropProps {
   showBackdrop: boolean;
-  setShowBackdrop: (value: boolean) => void;
+  setShowBackdrop?: (value: boolean) => void;
   children: React.ReactNode;
 }
 
@@ -23,9 +23,9 @@ const BackDrop: React.FC<BackDropProps> = ({ showBackdrop, setShowBackdrop, chil
   return (
     <>
       {showBackdrop && (
-        <div onClick={() => setShowBackdrop(!showBackdrop)} className={styles.backDrop}>
+        <div onClick={() =>setShowBackdrop && setShowBackdrop(!showBackdrop)} className={styles.backDrop}>
           <div onClick={(e) => e.stopPropagation()}>
-            {children}
+            {children && children}
           </div>
         </div>
       )}

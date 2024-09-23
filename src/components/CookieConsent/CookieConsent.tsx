@@ -71,8 +71,8 @@ const CookieConsentForm: React.FC<CustomCookieConsentProps> = ({ onConsentGrante
               type="checkbox"
               name="consent"
               value="consent_marketing"
-              
-         
+
+
               checked={consentTypes.includes('consent_marketing')}
               onChange={() => handleConsentChange('consent_marketing')}
             />
@@ -85,7 +85,7 @@ const CookieConsentForm: React.FC<CustomCookieConsentProps> = ({ onConsentGrante
               value="consent_functional"
               disabled={true}
               checked={consentTypes.includes('consent_functional')}
-              // onChange={() => handleConsentChange('consent_functional')}
+            // onChange={() => handleConsentChange('consent_functional')}
             />
             Funktionale Cookies (For Internal Use)
           </label>

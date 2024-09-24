@@ -23,3 +23,27 @@ You will also see any lint errors in the console.
 
 for building production ready build files containes the .htaccess file for apache server and sitemap from
 
+#### routing
+
+all routing is done recursivly for navbar, react-router-dom,sitemap.xml, sidebar component.
+so the routes must be set in **routerData.tsx** file in the Pages directory. router.tsx is responsible for creating routes based on routesData in routerData.tsx.
+
+flags and optional flags from creating routes in given route file .
+
+```RouteData {
+    path: string;
+    element?: ReactElement;
+    navName?: string;
+    addToNav?: boolean;
+    addToSideBar?: boolean;
+    addToSiteMap?:boolean;
+    subRoutes?: RouteData[];
+    // Allow recursive nesting
+}```
+
+NavBar has a flag to set Underline animation to nav element .by default its turned on and can be turned off with showNavUnderline=false on Nav component
+
+
+#### Header component 
+ custom component can be added 
+

@@ -20,8 +20,9 @@ You will also see any lint errors in the console.
 
 ### `npm run prodBuild`
 
-for building production ready build files containes the .htaccess file for apache server and sitemap from
+for building production ready build files containes the .htaccess file (for apache server) , sitemap.xml and robots.txt file from util. any changes to make to this files can be made from util directory in there respective ts files. 
 
+## Broken Documentation 😅
 #### routing
 
 all routing is done recursivly for navbar, react-router-dom,sitemap.xml, sidebar component.
@@ -44,9 +45,11 @@ RouteData {
 ```
 
 
-NavBar has a flag to set Underline animation to nav element .by default its turned on and can be turned off with showNavUnderline=false on Nav component
-
-
 #### Header component 
- custom component can be added 
+ custom component can be added with other router links in Header.tsx
+
+ inside Header there is a Nav component which is resposible for rendering nav from routeData
+
+ NavBar has a flag to set Underline animation to nav element .by default its turned on and can be turned off with showNavUnderline=false on Nav component
+
 

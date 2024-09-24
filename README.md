@@ -1,4 +1,11 @@
 # Getting Started with My React Boilerplate
+## installation
+
+run npm install in root
+cd to src dir
+rename components to Components
+
+cd back to root dir
 
 ## Available Scripts
 

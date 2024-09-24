@@ -35,9 +35,9 @@ const Header: React.FC = () => {
               <Link to="/gallery" className={styles.actionLink}>
                 <FaImage className={styles.svgIconsR} /> Gallery
               </Link>
-              <a href={`tel:${companyPhoneNumber}`} className={styles.phoneNumber}>
+              <Link to={`tel:${companyPhoneNumber}`} className={styles.phoneNumber}>
                 <FaPhone className={styles.svgIconsR} /> {companyPhoneNumber}
-              </a>
+              </Link>
               <div className={styles.bookButton} onClick={()=>{alert("clicked")}}>
                 Contact Form
               </div>

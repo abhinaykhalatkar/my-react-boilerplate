@@ -3,7 +3,7 @@ import styles from './NavBar.module.scss';
 import { motion } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
 import routesData, { RouteData } from '../../Pages/routerData';
-import { FaArrowRightLong, FaArrowUpLong, FaPhone, FaImage } from 'react-icons/fa6';
+import { FaArrowUpLong } from 'react-icons/fa6';
 
 interface HandleMouseEnterParams {
     key: string;

@@ -4,6 +4,7 @@ import Home from "./Home/Home";
 import SiteMapPage from "./SiteMapPage/SiteMapPage";
 import Datenschutz from "./Datenschutz/Datenschutz";
 import Impressum from "./Impressum/Impressum";
+import Gallery from "./Gallery/Gallery";
 
 
 export interface RouteData {
@@ -45,6 +46,12 @@ const routesData: RouteData[] = [
             { path: "/subLink3",addToNav: true, element: <SiteMapPage />, navName: "Link 3" },
             { path: "/subLink4", addToNav: true,element: <SiteMapPage />, navName: "Link 4" },
         ],
+    },
+    {
+        path: "/gallery",
+        element: <Gallery />,
+        addToNav: true,
+        navName: "Gallery",
     },
     {
         path: "/datenschutz",

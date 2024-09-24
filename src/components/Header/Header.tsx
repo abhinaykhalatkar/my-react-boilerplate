@@ -165,8 +165,8 @@ const Header: React.FC = () => {
                 {/* <img src={TeamIcon} className={styles.svgIconsR} alt="Team Icon" />  */}
                 Team
               </Link>
-              <Link to="/einblicke" className={styles.actionLink}>
-                <FaImage className={styles.svgIconsR} /> Einblicke
+              <Link to="/gallery" className={styles.actionLink}>
+                <FaImage className={styles.svgIconsR} /> Gallery
               </Link>
               <a href={`tel:${companyPhoneNumber}`} className={styles.phoneNumber}>
                 <FaPhone className={styles.svgIconsR} /> {companyPhoneNumber}

@@ -1,11 +1,10 @@
 # Getting Started with My React Boilerplate
 ## installation
 
-run npm install in root
-cd to src dir
-rename components to Components
-
-cd back to root dir
+- [x] run npm install in root
+- [x] cd to src directory
+- [x] rename components to Components
+- [x] cd back to root directory
 
 ## Available Scripts
 
@@ -30,6 +29,7 @@ so the routes must be set in **routerData.tsx** file in the Pages directory. rou
 
 flags and optional flags from creating routes in given route file .
 
+
 ```RouteData {
     path: string;
     element?: ReactElement;
@@ -40,6 +40,7 @@ flags and optional flags from creating routes in given route file .
     subRoutes?: RouteData[];
     // Allow recursive nesting
 }```
+
 
 NavBar has a flag to set Underline animation to nav element .by default its turned on and can be turned off with showNavUnderline=false on Nav component
 

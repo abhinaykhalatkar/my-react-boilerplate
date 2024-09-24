@@ -6,6 +6,9 @@ import AppRoutes from './Pages/router';
 import ScrollToTopFunction from "./Components/TopButton/ScrollToTopButton"
 // import EditorMain from './Components/Editor/EditorMain';
 import Header from './Components/Header/Header';
+import CookieConsentForm from './Components/CookieConsent/CookieConsent';
+
+
 function App() {
   const { fontSizeMag } = useContext(AccessibilityContext);
 
@@ -15,6 +18,7 @@ function App() {
   return (
     <div className="App">
       {/* <EditorMain/> */}
+      <CookieConsentForm />
       <ScrollToTopFunction />
       <AccessibilityMenu />
       <Header />

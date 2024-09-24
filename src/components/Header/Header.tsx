@@ -161,10 +161,10 @@ const Header: React.FC = () => {
         <header className={styles.header}>
           <div className={styles.topBar}>
             <div className={styles.actions}>
-              <Link to="/team" className={styles.actionLink}>
-                {/* <img src={TeamIcon} className={styles.svgIconsR} alt="Team Icon" />  */}
+              {/* <Link to="/team" className={styles.actionLink}>
+                <img src={TeamIcon} className={styles.svgIconsR} alt="Team Icon" /> 
                 Team
-              </Link>
+              </Link> */}
               <Link to="/gallery" className={styles.actionLink}>
                 <FaImage className={styles.svgIconsR} /> Gallery
               </Link>
@@ -181,7 +181,7 @@ const Header: React.FC = () => {
           </div>
           <div className={styles.botBar}>
             <Link className={styles.logo} to="/">
-              <img src={companyLogo} alt="PREV" />
+              <img src={companyLogo} alt="Home" />
             </Link>
             <nav className={styles.nav} onMouseLeave={handleMouseLeave}>
               {renderNavItems(routesData)}

@@ -1,63 +1,61 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import styles from './GalleryCarousel.module.scss'; // SCSS module
-import Modal from '../Modal/Modal'; // Import Modal
+import styles from './GalleryCarousel.module.scss';
+import Modal from '../Modal/Modal';
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
 import { AccessibilityContext } from '../../Context/accessibilityContext';
 
-// Define image interface
 interface ImageProps {
   src: string;
   alt: string;
 }
 
-// Props for the gallery carousel
 interface GalleryCarouselProps {
   images: ImageProps[];
 }
 
 const variants = {
   enter: (direction: number) => ({
-    x: direction > 0 ? "100%" : "0%",  // Slide in from left or right
-    opacity: 0,  // Start with invisible
+    x: direction > 0 ? 1000 : -1000,
+    opacity: 0,
+    transition: {
+      x: { type: "spring", stiffness: 300, damping: 30 },
+      opacity: { duration: 0.5 },
+    },
   }),
   center: {
-    zIndex: 1,  // Ensure the centered image is on top
-    x: 0,       // Centered in the viewport
-    opacity: 1, // Fully visible
+    zIndex: 1,
+    x: 0,
+    opacity: 1,
     transition: {
-      x: { type: "spring", stiffness: 1000, damping: 90 }, // Smooth spring-like sliding transition
-      opacity: { duration: 0.5 },  // Opacity fades in over 0.5s
+      x: { type: "spring", stiffness: 1000, damping: 90 },
+      opacity: { duration: 0.5 },
     },
   },
   exit: (direction: number) => ({
-    zIndex: 0,  // Move behind the incoming image
-    x: direction < 0 ? "0%" : "-100%",  // Slide out to the left or right
-    opacity: 0,  // Fade out to invisible
+    zIndex: 0,
+    x: direction < 0 ? 1000 : -1000,
+    opacity: 0,
     transition: {
-      x: { type: "spring", stiffness: 300, damping: 30 }, // Smooth exit slide
-      opacity: { duration: 0.5 },  // Opacity fades out over 0.5s
+      x: { type: "spring", stiffness: 300, damping: 30 },
+      opacity: { duration: 0.5 },
     },
   }),
 };
 
-
 const GalleryCarousel: React.FC<GalleryCarouselProps> = ({ images }) => {
   const [isCarouselOpen, setCarouselOpen] = useState(false);
   const [[selectedImage, direction], setSelectedImage] = useState([0, 0]);
-  const { displaySize } =
-    useContext(AccessibilityContext);
+  const { displaySize } = useContext(AccessibilityContext);
+  const thumbnailGalleryRef = useRef<HTMLDivElement>(null); // Ref for thumbnail gallery
 
   useEffect(() => {
     if (isCarouselOpen) {
-      // Disable background scroll
       document.body.style.overflow = 'hidden';
     } else {
-      // Re-enable background scroll
       document.body.style.overflow = '';
     }
 
-    // Handle mouse scroll for navigation
     const handleScroll = (e: WheelEvent) => {
       if (isCarouselOpen) {
         if (e.deltaY > 0) {
@@ -75,47 +73,65 @@ const GalleryCarousel: React.FC<GalleryCarouselProps> = ({ images }) => {
     };
   }, [isCarouselOpen, selectedImage]);
 
-  // Open the carousel
   const openCarousel = (index: number) => {
     setSelectedImage([index, 0]);
-    setCarouselOpen(true);
+    setCarouselOpen(true);  
   };
-  // Go to next image
+
   const nextImage = () => {
-    setSelectedImage([selectedImage + 1 < images.length ? selectedImage + 1 : 0, 1]);
+    const newIndex = (selectedImage + 1) % images.length;
+    setSelectedImage([newIndex, 1]);
+    console.log(newIndex)
+    centerThumbnail(newIndex); // Ensure selected image is centered
   };
 
-  // Go to previous image
   const prevImage = () => {
-    setSelectedImage([selectedImage - 1 >= 0 ? selectedImage - 1 : images.length - 1, -1]);
+    const newIndex = (selectedImage - 1 + images.length) % images.length;
+    setSelectedImage([newIndex, -1]);
+    console.log(newIndex)
+    centerThumbnail(newIndex); // Ensure selected image is centered
   };
 
-  // Set image from thumbnail gallery
   const setCurrentImage = (index: number) => {
     setSelectedImage([index, 0]);
+    centerThumbnail(index); // Ensure selected image is centered
+  };
+
+  // Center the selected thumbnail in the gallery
+  const centerThumbnail = (index: number) => {
+    if (thumbnailGalleryRef.current) {
+      const gallery = thumbnailGalleryRef.current;
+      const thumbnail = gallery.children[index] as HTMLElement;
+      const galleryWidth = gallery.offsetWidth;
+      const thumbnailWidth = thumbnail.offsetWidth;
+      const scrollPosition =thumbnail.offsetLeft - (galleryWidth - thumbnailWidth) /2;
+      
+      // Scroll to the calculated position
+      gallery.scrollTo({
+        left: scrollPosition,
+        behavior: 'smooth',
+      });
+      console.log(scrollPosition)
+    }
   };
 
   return (
     <div className={styles.GalleryCarouselCompo}>
-      
-        <div className={styles.galleryGrid}>
-          {images.map((image, index) => (
-            <img
-              key={index}
-              src={image.src}
-              alt={image.alt}
-              className={styles.galleryImage}
-              onClick={() => { if(displaySize.isDesktop){openCarousel(index)}}}
-            />
-          ))}
-        </div>
-  
+      <div className={styles.galleryGrid}>
+        {images.map((image, index) => (
+          <img
+            key={index}
+            src={image.src}
+            alt={image.alt}
+            className={styles.galleryImage}
+            onClick={() => { if (displaySize.isDesktop) { openCarousel(index)}  }}
+          />
+        ))}
+      </div>
 
-
-      {displaySize.isDesktop  &&
+      {displaySize.isDesktop &&
         <Modal closeBtnClass={styles.modalCloseBtn} className={styles.galleryModal} isModalOpen={isCarouselOpen} setIsModalOpen={setCarouselOpen} closeBtnText="Close">
           <div className={styles.carouselWrapper}>
-            {/* Main Image with animation */}
             <div className={styles.mainImageWrapper}>
               <AnimatePresence initial={false} custom={direction}>
                 <motion.img
@@ -139,8 +155,8 @@ const GalleryCarousel: React.FC<GalleryCarouselProps> = ({ images }) => {
               </button>
             </div>
 
-            {/* Thumbnail Gallery */}
-            <div className={styles.thumbnailGallery}>
+            {/* Infinite Scrolling Thumbnail Gallery */}
+            <div className={styles.thumbnailGallery} ref={thumbnailGalleryRef}>
               {images.map((image, index) => (
                 <motion.img
                   key={index}

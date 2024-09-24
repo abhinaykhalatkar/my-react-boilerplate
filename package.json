@@ -27,7 +27,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build:ts": "tsc",
-    "runUtil":"ts-node -r ./src/util/register-ignore src/util/sitemapGen.ts && ts-node -r ./src/util/register-ignore src/util/htaccessGen.ts && ts-node -r ./src/util/register-ignore src/util/roboTxtGen.ts",
+    "runUtil": "ts-node -r ./src/util/register-ignore src/util/sitemapGen.ts && ts-node -r ./src/util/register-ignore src/util/htaccessGen.ts && ts-node -r ./src/util/register-ignore src/util/roboTxtGen.ts",
     "prodBuild": "react-scripts build && npm run runUtil",
     "eject": "react-scripts eject"
   },

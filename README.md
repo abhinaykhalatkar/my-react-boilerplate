@@ -30,7 +30,8 @@ so the routes must be set in **routerData.tsx** file in the Pages directory. rou
 flags and optional flags from creating routes in given route file .
 
 
-```RouteData {
+```
+RouteData {
     path: string;
     element?: ReactElement;
     navName?: string;
@@ -39,7 +40,8 @@ flags and optional flags from creating routes in given route file .
     addToSiteMap?:boolean;
     subRoutes?: RouteData[];
     // Allow recursive nesting
-}```
+}
+```
 
 
 NavBar has a flag to set Underline animation to nav element .by default its turned on and can be turned off with showNavUnderline=false on Nav component

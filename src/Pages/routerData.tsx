@@ -52,31 +52,30 @@ const routesData: RouteData[] = [
     {
         path: "/gallery",
         element: <Gallery />,
-        addToNav: true,
         navName: "Gallery",
     },
     {
         path: "/contact",
         element: <Contact />,
-        addToNav: true,
         navName: "Contact",
     },
     {
         path: "/datenschutz",
         element: <Datenschutz />,
-        addToNav: true,
         navName: "Datenschutz",
     },
     {
         path: "/impressum",
         element: <Impressum />,
-        addToNav: true,
+        addToNav: false,
+        addToSideBar:false,
         navName: "Impressum",
     },
     {
         path: "*",
         element: <Page404 />,
         addToNav: false,
+        addToSideBar:false,
         addToSiteMap:false,
     },
 

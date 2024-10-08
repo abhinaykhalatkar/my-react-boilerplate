@@ -18,7 +18,6 @@ function App() {
   }, [fontSizeMag]);
   return (
     <div className="App">
-      {/* git workflow test */}
       {/* <EditorMain/> */}
       <CookieConsentForm />
       <ScrollToTopFunction />

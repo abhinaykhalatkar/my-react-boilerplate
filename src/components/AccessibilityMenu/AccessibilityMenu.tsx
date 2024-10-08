@@ -37,10 +37,10 @@ export default function AccessibilityMenu() {
       {isOpen ? (
         <></>
       ) : (
-        <div onClick={toggleMenu} className="accessibility-icon" title="close accessibility menu"
-          aria-label="close accessibility menu" >
-          <FaUniversalAccess />
-        </div>
+    
+          <FaUniversalAccess onClick={toggleMenu} className="accessibility-icon" title="close accessibility menu"
+          aria-label="close accessibility menu"/>
+       
       )}
       <div className={`menu-content ${isOpen ? "open" : ""}`}>
         <div onClick={toggleMenu} className={'close_Icon'} title="close accessibility menu"

@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Header.module.scss';
-import companyLogo from '../../logo.svg';
+import companyLogo from '../../Assets/logo.png';
 import { FaPhone, FaImage } from 'react-icons/fa6';
 // import TeamIcon from '../../logo.svg';
 import { companyPhoneNumber } from '../../Global-Info';

@@ -12,7 +12,7 @@ import { usePageTracking } from './Components/GoogleTagManager/usePageTracking';
 
 function App() {
   const { fontSizeMag } = useContext(AccessibilityContext);
-// usePageTracking()
+  // usePageTracking()
   useEffect(() => {
     document.documentElement.style.fontSize = `${fontSizeMag}px`;
   }, [fontSizeMag]);
@@ -23,8 +23,10 @@ function App() {
       <ScrollToTopFunction />
       <AccessibilityMenu />
       <Header />
-      <AppRoutes />
-      <Footer/>
+      <div className='pageBody'>
+        <AppRoutes />
+      </div>
+      <Footer />
     </div>
   );
 }

@@ -8,7 +8,7 @@ import ScrollToTopFunction from "./Components/TopButton/ScrollToTopButton"
 import Header from './Components/Header/Header';
 import Footer from './Components/Footer/Footer';
 import CookieConsentForm from './Components/CookieConsent/CookieConsent';
-import { usePageTracking } from './Components/GoogleTagManager/usePageTracking';
+// import { usePageTracking } from './Components/GoogleTagManager/usePageTracking';
 
 function App() {
   const { fontSizeMag } = useContext(AccessibilityContext);

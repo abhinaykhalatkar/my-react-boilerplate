@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaBars, FaArrowUpLong, FaArrowDownLong } from 'react-icons/fa6';
 import { motion } from 'framer-motion';
 import styles from './Sidebar.module.scss';
-import companyLogo from '../../logo.svg';
+import companyLogo from '../../Assets/logo.png';
 import routesData, { RouteData } from '../../Pages/routerData';
 
 interface SidebarProps {

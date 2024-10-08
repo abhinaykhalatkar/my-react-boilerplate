@@ -5,6 +5,7 @@ import SiteMapPage from "./SiteMapPage/SiteMapPage";
 import Datenschutz from "./Datenschutz/Datenschutz";
 import Impressum from "./Impressum/Impressum";
 import Gallery from "./Gallery/Gallery";
+import Contact from "./Contact/Contact";
 
 
 export interface RouteData {
@@ -33,6 +34,7 @@ const routesData: RouteData[] = [
         element: <SiteMapPage />,
         addToNav: true,
         addToSiteMap:false,
+        addToSideBar:false,
         navName: "Site-Map",
     },
     //example for subRoutes
@@ -52,6 +54,12 @@ const routesData: RouteData[] = [
         element: <Gallery />,
         addToNav: true,
         navName: "Gallery",
+    },
+    {
+        path: "/contact",
+        element: <Contact />,
+        addToNav: true,
+        navName: "Contact",
     },
     {
         path: "/datenschutz",

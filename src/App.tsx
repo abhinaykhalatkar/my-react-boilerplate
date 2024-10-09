@@ -10,7 +10,7 @@ import Footer from './Components/Footer/Footer';
 import CookieConsentForm from './Components/CookieConsent/CookieConsent';
 // import { usePageTracking } from './Components/GoogleTagManager/usePageTracking';
 
-function App() {
+const App: React.FC = () => {
   const { fontSizeMag } = useContext(AccessibilityContext);
   // usePageTracking()
   useEffect(() => {

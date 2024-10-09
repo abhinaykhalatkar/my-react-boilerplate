@@ -20,6 +20,7 @@ function App() {
     <div className="App">
       {/* <EditorMain/> */}
       <CookieConsentForm />
+      {/* git test */}
       <ScrollToTopFunction />
       <AccessibilityMenu />
       <Header />

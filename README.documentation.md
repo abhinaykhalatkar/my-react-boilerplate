@@ -25,7 +25,7 @@ for building production ready build files contains the .htaccess file (for apach
 all routing is done recursively for navbar, react-router-dom,sitemap.xml, sidebar component.
 so the routes must be set in **routerData.tsx** file in the Pages directory. router.tsx is responsible for creating routes based on routesData in routerData.tsx.
 
-flags and optional flags from creating routes in given route file .
+flags and optional flags from creating routes in given route file.
 
 **Allows recursive nesting**
 

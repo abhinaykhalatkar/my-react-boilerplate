@@ -14,11 +14,13 @@ export interface RouteData {
     navName?: string;
     addToNav?: boolean;
     addToSideBar?: boolean;
-    addToSiteMap?:boolean;
+    addToSiteMap?: boolean;
+    pageTitle?: string;
+    pageDescription?: string;
+    pageKeyWords?: string;
     subRoutes?: RouteData[];
     // Allow recursive nesting
 }
-
 
 //parent routes having sub routes dosent have to have component , if such routes are accessed 404 page will be shown. but adding component is also possible
 //addToNav: true, set in order to make it part of nav, dont add the flag to sub routes as styling NOT done yet
@@ -27,6 +29,9 @@ const routesData: RouteData[] = [
         path: "/",
         element: <Home />,
         navName: "Home",
+        pageTitle:"HOME",
+        pageDescription:"this is the home page",
+        pageKeyWords:"home"
     },
 
     {

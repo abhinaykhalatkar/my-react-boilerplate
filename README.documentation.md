@@ -30,14 +30,17 @@ flags and optional flags from creating routes in given route file.
 **Allows recursive nesting**
 
 ```
-type RouteData {
+RouteData {
     path: string;
     element?: ReactElement;
     navName?: string;
     addToNav?: boolean;
     addToSideBar?: boolean;
-    addToSiteMap?:boolean;
-    subRoutes?: RouteData[]; 
+    addToSiteMap?: boolean;
+    pageTitle?: string;
+    pageDescription?: string;
+    pageKeyWords?: string;
+    subRoutes?: RouteData[];
 }
 ```
 #### Header component 

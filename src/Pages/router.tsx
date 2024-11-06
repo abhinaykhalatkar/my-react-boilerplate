@@ -1,26 +1,40 @@
-import { Route, Routes } from "react-router-dom";
-import routesData, { RouteData } from "./routerData";
-import Page404 from "./Page404/Page404";
-import { ReactElement } from "react";
+// router.tsx
+import { Route, Routes } from 'react-router-dom';
+import routesData, { RouteData } from './routerData';
+import Page404 from './Page404/Page404';
+import { ReactElement } from 'react';
+import MetaWrapper from './MetaWrapper'; // Import MetaWrapper
 
-// to add routes and its component add the route and its flags in routerData file
-
-
-const RenderRoutes = (routes: RouteData[], parentPath: string = ""): ReactElement[] => {
+const RenderRoutes = (
+  routes: RouteData[],
+  parentPath: string = ''
+): ReactElement[] => {
   return routes.map((route, index) => {
-    const fullPath = `${parentPath}${route.path}`.replace("//", "/"); // Ensure paths are correctly formatted
+    const fullPath = `${parentPath}${route.path}`.replace('//', '/'); // Ensure paths are correctly formatted
 
-    // If the route has subRoutes, we will render its element for the exact match and its subRoutes as nested routes.
+    // Wrap the route's element with MetaWrapper to inject meta tags
+    const routeElement = route.element ? (
+      <MetaWrapper
+        element={route.element}
+        pageTitle={route.pageTitle}
+        pageDescription={route.pageDescription}
+        pageKeywords={route.pageKeyWords}
+      />
+    ) : (
+      <Page404 />
+    );
+
+    // If the route has subRoutes, render them recursively
     return (
       <Route
         key={index}
         path={fullPath}
-        element={route.subRoutes ? undefined : (route.element || <Page404 />)} // Only render element if there are no subRoutes
+        element={route.subRoutes ? undefined : routeElement}
       >
         {route.subRoutes && (
           <>
             {/* Render the parent element only when the exact parent path matches */}
-            <Route index element={route.element || <Page404 />} />
+            <Route index element={routeElement} />
             {RenderRoutes(route.subRoutes, fullPath)}
           </>
         )}
@@ -31,12 +45,10 @@ const RenderRoutes = (routes: RouteData[], parentPath: string = ""): ReactElemen
 
 const AppRoutes = () => {
   return (
-    <div className="container">
-      <Routes>
-        {RenderRoutes(routesData)}
-        <Route path="*" element={<Page404 />} /> {/* Fallback for any undefined route */}
-      </Routes>
-    </div>
+    <Routes>
+      {RenderRoutes(routesData)}
+      <Route path="*" element={<Page404 />} /> {/* Fallback for any undefined route */}
+    </Routes>
   );
 };
 

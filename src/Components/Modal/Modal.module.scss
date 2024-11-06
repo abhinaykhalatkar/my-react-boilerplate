@@ -1,7 +1,7 @@
 @import '../../styles/variables';
 .vitaModule{
     width: 80vw;
-    max-width: 1000px;
+    max-width: calc($max-width - 200px);
     max-height: 80vh;
     overflow-Y: scroll;
     background-color: $white;

@@ -2,7 +2,6 @@
 
 import styles from "./SiteMapPage.module.scss";
 import { Link } from "react-router-dom";
-import { Helmet } from 'react-helmet-async';
 import routesData, { RouteData } from "../routerData";
 
 const generateSiteMap = (routes: RouteData[], parentPath = ''): React.ReactNode => {
@@ -49,10 +48,6 @@ const generateSubRoutes = (subRoutes: RouteData[], parentPath: string): React.Re
 export default function SiteMapPage() {
   return (
     <>
-      <Helmet>
-        <title>Sitemap</title>
-      </Helmet>
-
       <section className={"d-flex flex-column " + styles.siteMap}>
         <h1>Sitemap</h1>
         <nav className={styles.sitemap}>

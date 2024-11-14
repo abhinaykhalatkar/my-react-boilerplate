@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 
-// Define the root directory for the React project
+// Define the root directory for the React projectt
 const rootDir = path.join(__dirname, '../../');
 const buildDir = path.join(rootDir, 'build');
 

@@ -1,4 +1,19 @@
 # Getting Started with My React Boilerplate
+
+# Table of Contents
+
+1. [Installation](#installation)
+2. [Available Scripts](#available-scripts)
+   - [npm start](#npm-start)
+   - [npm run build](#npm-run-build)
+   - [npm run prodBuild](#npm-run-prodbuild)
+3. [Broken Documentation 😅](#broken-documentation-)
+   - [Routing](#routing)
+   - [Header Component](#header-component)
+   - [Cookie Consent](#cookie-consent)
+
+---
+
 ## Installation
 - [x] rename .env.example file in root directory to .env 
 - [x] run npm install in root
@@ -14,6 +29,9 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
+
+### `npm run build`
+to make build folder for live test server (dosent contain robot.txt and sitemap.xml)
 
 ### `npm run prodBuild`
 (build process uses ts-node for running util ts files. they are not part of build script except for output files such as .htaccess, sitemap.xml and robots.txt)
@@ -68,4 +86,21 @@ consent_analytics flag is responsible to switch on Google tag manager. if GTM ne
 consent are save as cookie in local storage .
 also for conversion pixel of gtm usePageTracking hook can be used which need to be uncommented in app.tsx to use. this passes the conversion pixel data to data layer and then passed on to GTM
 
-
+#### Copy file
+use copyToBuild.ts in util to add path of file or directory to copy them to build folder after react build is done.
+example structure 
+```
+copyList= [
+//starts from project root
+    {
+        source: path.join(rootDir, 'mailer-api'),
+        destination: path.join(buildDir, 'mailer-api')
+    },
+    {
+        source: path.join(rootDir, '.env'),
+        destination: path.join(buildDir, 'mailer-api/.env')
+    }
+];
+```
+#### global-info.ts for global variables
+global-info.ts contains companyPhoneNumber, companyEmail, companyName etc along with **domainLink** which is used to build roboto.txt file and sitemap.xml file 

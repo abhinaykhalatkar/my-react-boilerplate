@@ -1,0 +1,23 @@
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+
+# Rewrite rule for mailer-api to point to contactmail.php
+RewriteCond %{REQUEST_URI} ^/mailer-api/?$ [NC]
+RewriteRule ^ mailer-api/contactmail.php [L]
+
+# Allow files in the mailer-api folder to be accessed directly
+RewriteCond %{REQUEST_URI} ^/mailer-api/.*$ [NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ mailer-api/%{REQUEST_URI} [L]
+
+# React app routing
+RewriteRule ^index.html$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteRule . /index.html [L]
+
+</IfModule>

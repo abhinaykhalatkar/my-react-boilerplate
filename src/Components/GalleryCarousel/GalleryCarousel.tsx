@@ -1,10 +1,11 @@
-import React, { useState, useEffect, useContext, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import styles from './GalleryCarousel.module.scss';
 import Modal from '../Modal/Modal';
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
-import { AccessibilityContext } from '../../Context/accessibilityContext';
 import CircleLoader from '../CircleLoader/CircleLoader';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store/store';
 
 interface ImageProps {
   src: string;
@@ -48,7 +49,7 @@ const GalleryCarousel: React.FC<GalleryCarouselProps> = ({ images }) => {
   const [isCarouselOpen, setCarouselOpen] = useState(false);
   const [[selectedImage, direction], setSelectedImage] = useState([0, 0]);
   const [isLoading, setIsLoading] = useState(true);
-  const { displaySize } = useContext(AccessibilityContext);
+  const displaySize = useSelector((state: RootState) => state.accessibility.displaySize);
   const thumbnailGalleryRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

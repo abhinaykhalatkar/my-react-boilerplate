@@ -11,15 +11,15 @@ export enum ConsentTypes {
 }
 
 // Array of consent items with IDs and labels
-const consentItems: { id: ConsentTypes; label: string; disabled?: boolean ; isCheckedByDef?:boolean}[] = [
+const consentItems: { id: ConsentTypes; label: string; disabled?: boolean; isCheckedByDef?: boolean }[] = [
   { id: ConsentTypes.Analytics, label: "Analyse Cookies" },
   { id: ConsentTypes.Marketing, label: "Marketing Cookies" },
-  { id: ConsentTypes.Functional, label: "Funktionale Cookies (For Internal Use)", disabled: true ,isCheckedByDef:true},
+  { id: ConsentTypes.Functional, label: "Funktionale Cookies (For Internal Use)", disabled: true, isCheckedByDef: true },
 ];
 
-const CookieConsentForm: React.FC = () => { 
+const CookieConsentForm: React.FC = () => {
   const [consentSelection, setConsentSelection] = useState<ConsentTypes[]>([]);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isCookieConsentFormVisible, setIsCookieConsentFormVisible] = useState(false);
 
   useEffect(() => {
     const storedConsent = localStorage.getItem('cookie-consent');
@@ -33,9 +33,16 @@ const CookieConsentForm: React.FC = () => {
     } else {
       // Set all consents as default
       setConsentSelection(consentItems.filter(item => item.isCheckedByDef).map(item => item.id));
-      setIsVisible(true);
+      handleCookieConsentToggle(true)
     }
   }, []);
+  const handleCookieConsentToggle = (state?: boolean) => {
+    if (state !== undefined) {
+      setIsCookieConsentFormVisible(state);
+    } else {
+      setIsCookieConsentFormVisible(prev => !prev);
+    }
+  };
 
   // Handle checkbox changes for each consent type
   const handleConsentChange = (consentType: ConsentTypes) => {
@@ -49,26 +56,26 @@ const CookieConsentForm: React.FC = () => {
   // Handle Accepting the selected consents
   const handleAcceptSelected = () => {
     localStorage.setItem('cookie-consent', JSON.stringify(consentSelection));
-    setIsVisible(false);
+    setIsCookieConsentFormVisible(false);
     console.log(localStorage.getItem('cookie-consent'));
   };
 
   const handleAcceptAll = () => {
     localStorage.setItem('cookie-consent', JSON.stringify(consentItems.map(item => item.id)));
-    setIsVisible(false);
+    setIsCookieConsentFormVisible(false);
     console.log(localStorage.getItem('cookie-consent'));
   };
 
   const handleDeclineAll = () => {
     localStorage.setItem('cookie-consent', JSON.stringify([]));
-    setIsVisible(false);
+    setIsCookieConsentFormVisible(false);
     console.log(localStorage.getItem('cookie-consent'));
   };
 
   return (
     <>
-      {isVisible ? (
-        <BackDrop showBackdrop={isVisible}>
+      {isCookieConsentFormVisible ? (
+        <BackDrop showBackdrop={isCookieConsentFormVisible}>
           <div className={styles.banner}>
             <p>
               Diese Website verwendet Cookies, um Ihr Erlebnis zu verbessern. Bitte wählen Sie Ihre Präferenzen:

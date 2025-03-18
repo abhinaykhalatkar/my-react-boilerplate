@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.scss';
 import App from './App';
 import { BrowserRouter } from "react-router-dom";
-import { AccessibilityProvider } from "./Context/accessibilityContext";
+import { Provider } from 'react-redux';
+import { store } from "./store/store";
 import { HelmetProvider } from "react-helmet-async";
 
 const root = ReactDOM.createRoot(
@@ -11,12 +12,12 @@ const root = ReactDOM.createRoot(
 );
 const helmetContext = {};
 root.render(
-  <HelmetProvider context={helmetContext}>
-    <AccessibilityProvider>
-    <BrowserRouter>
-      <App />
+  <Provider store={store}>
+    <HelmetProvider context={helmetContext}>
+      <BrowserRouter>
+        <App />
       </BrowserRouter>
-    </AccessibilityProvider>
-  </HelmetProvider>
+    </HelmetProvider>
+  </Provider>
 );
 

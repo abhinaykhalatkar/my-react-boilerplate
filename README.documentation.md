@@ -122,5 +122,7 @@ copyList= [
     }
 ];
 ```
-#### global-info.ts for global variables
-global-info.ts contains companyPhoneNumber, companyEmail, companyName etc along with **domainLink** which is used to build roboto.txt file and sitemap.xml file 
+#### #### Global Info
+**global-info.ts for global variables**
+
+global-info.ts contains company PhoneNumber, companyEmail, companyName etc along with **domainLink** which is used to build roboto.txt file and sitemap.xml file 

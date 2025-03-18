@@ -1,4 +1,4 @@
-import { useState, useContext ,useEffect} from "react";
+import { useState, useContext, useEffect } from "react";
 import "./AccessibilityMenu.scss";
 import { FaAnglesRight, FaUniversalAccess } from "react-icons/fa6";
 import "../../Assets/accessibility-icon.svg";
@@ -23,24 +23,24 @@ export default function AccessibilityMenu() {
       decreaseFontSize();
     }
   }
-  useEffect(()=>{
+  useEffect(() => {
     let count = 0;
     //to set the default font size
-    while(count<fontSize){
+    while (count < fontSize) {
       increaseFontSize();
       count++
     }
-  },[])
+  }, [])
 
   return (
     <div className={`accessibility-menu ${isOpen ? "open" : ""}`}>
       {isOpen ? (
         <></>
       ) : (
-    
-          <FaUniversalAccess onClick={toggleMenu} className="accessibility-icon" title="close accessibility menu"
-          aria-label="close accessibility menu"/>
-       
+
+        <FaUniversalAccess onClick={toggleMenu} className="accessibility-icon" title="close accessibility menu"
+          aria-label="close accessibility menu" />
+
       )}
       <div className={`menu-content ${isOpen ? "open" : ""}`}>
         <div onClick={toggleMenu} className={'close_Icon'} title="close accessibility menu"
@@ -51,20 +51,20 @@ export default function AccessibilityMenu() {
           <div
             className="circle"
             onClick={() => {
-              adjustFontSize(true);
+              adjustFontSize(false);
             }}
           >
             <span className="hor-line"></span>
-            <span className="ver-line"></span>
           </div>
           <h3>Font Size: {fontSize}</h3>
           <div
             className="circle"
             onClick={() => {
-              adjustFontSize(false);
+              adjustFontSize(true);
             }}
           >
             <span className="hor-line"></span>
+            <span className="ver-line"></span>
           </div>
         </div>
       </div>

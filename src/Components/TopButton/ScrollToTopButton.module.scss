@@ -30,24 +30,24 @@
 //     align-items: center;
     
 // }
-    @media (min-width: ($desktop)) {
+    // @media (min-width: ($desktop)) {
        
-       position: fixed;
-        img {
-            // height: 50px;
-            vertical-align: middle;
-            // width: 50px;
-        }
-    }
-    @media (min-width:($tablet)) {
-        position: fixed;
+    //    position: fixed;
+    //     img {
+    //         // height: 50px;
+    //         vertical-align: middle;
+    //         // width: 50px;
+    //     }
+    // }
+    // @media (min-width:($tablet)) {
+    //     position: fixed;
         
-    }
-    @media (max-width: ($miniTab))  {
-        margin: 0 25%;
-    }
-    @media (max-width: ($mobile)) {
-        margin-top: 10px;
-    }
+    // }
+    // @media (max-width: ($miniTab))  {
+    //     margin-top: 10px;
+    // }
+    // @media (max-width: ($mobile)) {
+    //     margin-top: 10px;
+    // }
 
 }

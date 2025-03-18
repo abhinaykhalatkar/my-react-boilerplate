@@ -4,7 +4,7 @@ import styles from './Header.module.scss';
 import companyLogo from '../../Assets/logo.png';
 import { FaPhone, FaImage } from 'react-icons/fa6';
 // import TeamIcon from '../../logo.svg';
-import { companyPhoneNumber } from '../../Global-Info';
+import { companyPhoneNumber,companyName } from '../../Global-Info';
 import { AccessibilityContext } from '../../Context/accessibilityContext';
 // import { ModalsStateContext } from '../../Context/ModalContext';
 import Sidebar from '../Sidebar/Sidebar';
@@ -47,8 +47,8 @@ const Header: React.FC = () => {
             </button>
           </div>
           <div className={styles.botBar}>
-            <Link className={styles.logo} to="/">
-              <img src={companyLogo} alt="Home" />
+            <Link className={styles.logo} to="/" title={`back to ${companyName} homepage`}>
+              <img src={companyLogo} alt={`back to ${companyName} homepage`} />
             </Link>
             <Nav/>
           </div>

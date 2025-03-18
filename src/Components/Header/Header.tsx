@@ -12,7 +12,6 @@ import Nav from '../NavBar/NavBar';
 const Header: React.FC = () => {
   const displaySize = useSelector((state: RootState) => state.accessibility.displaySize);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
   const toggleSidebar = () => {
     setIsSidebarOpen(prev => !prev);
   };

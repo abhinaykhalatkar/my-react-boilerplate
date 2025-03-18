@@ -1,10 +1,12 @@
 // src/store/store.ts
 import { configureStore } from '@reduxjs/toolkit';
 import accessibilityReducer from './accessibilitySlice';
+import cookieConsentReducer from './cookieConsentSlice';
 
 export const store = configureStore({
   reducer: {
     accessibility: accessibilityReducer,
+    cookieConsent: cookieConsentReducer,
   },
 });
 

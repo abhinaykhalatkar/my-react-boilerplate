@@ -1,0 +1,59 @@
+@import '../../styles/variables'; // Make sure $primaryColor is defined here
+
+.loaderContainer {
+  position: absolute; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999; // Keep loader above other elements
+}
+
+.loader {
+  background-color: $primaryColor;
+
+  /* Masking the loader with the brush circle */
+  -webkit-mask: url('../../Assets/brush-circle.svg') no-repeat center / contain;
+  mask: url('../../Assets/brush-circle.svg') no-repeat center / contain;
+
+  transform-origin: center center;
+  /* Spin & fluctuation animation */
+  animation: spinFluctuate 2s linear infinite;
+}
+
+/* Size classes */
+.small {
+  width: 30px;
+  height: 30px;
+}
+
+.medium {
+  width: 60px;
+  height: 60px;
+}
+
+.large {
+  width: 80px;
+  height: 80px;
+}
+
+@keyframes spinFluctuate {
+  0% {
+    transform: rotate(0deg) scale(0.8);
+  }
+  25% {
+    transform: rotate(90deg) scale(1.2);
+  }
+  50% {
+    transform: rotate(180deg) scale(1);
+  }
+  75% {
+    transform: rotate(270deg) scale(1.2);
+  }
+  100% {
+    transform: rotate(360deg) scale(0.8);
+  }
+}

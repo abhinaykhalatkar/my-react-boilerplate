@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
 
-import { ConsentTypes as Consents } from '../CookieConsent/CookieConsent';
+
+import { ConsentTypes } from '../../store/cookieConsentSlice';
 interface GoogleTagManagerProps {
-  consentSelection: Consents[];
+  consentSelection: ConsentTypes[];
 }
 
 const GoogleTagManager: React.FC<GoogleTagManagerProps> = ({ consentSelection }) => {
@@ -10,7 +11,7 @@ const GoogleTagManager: React.FC<GoogleTagManagerProps> = ({ consentSelection })
 
 
   function handlGtmConsent() {
-    return (localStorage.getItem('cookie-consent')?.includes(Consents.Analytics)
+    return (localStorage.getItem('cookie-consent')?.includes(ConsentTypes.Analytics)
       // && localStorage.getItem('cookie-consent')?.includes(Consents.Marketing)
       // && localStorage.getItem('cookie-consent')?.includes(Consents.Functional)
     )
@@ -28,9 +29,9 @@ const GoogleTagManager: React.FC<GoogleTagManagerProps> = ({ consentSelection })
           })(window,document,'script','dataLayer','${gtmId}');
         `;
         document.head.appendChild(gtmScript);
-        (window as any).dataLayer.push({ event: Consents.Analytics });
-        if (localStorage.getItem('cookie-consent')?.includes(Consents.Marketing)) {
-          (window as any).dataLayer.push({ event: Consents.Marketing });
+        (window as any).dataLayer.push({ event: ConsentTypes.Analytics });
+        if (localStorage.getItem('cookie-consent')?.includes(ConsentTypes.Marketing)) {
+          (window as any).dataLayer.push({ event: ConsentTypes.Marketing });
         }
       }
       if (!document.querySelector(`noscript iframe[src="https://www.googletagmanager.com/ns.html?id=${gtmId}"]`)) {

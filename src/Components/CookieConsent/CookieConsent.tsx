@@ -1,74 +1,47 @@
-import React, { useState, useEffect } from 'react';
+// src/Components/CookieConsent/CookieConsentForm.tsx
+import React from 'react';
 import styles from "./CookieConsent.module.scss";
 import BackDrop from '../Backdrop/BackDrop';
 import GoogleTagManager from '../GoogleTagManager/GoogleTagManager';
-
-// Updated enum for consent types
-export enum ConsentTypes {
-  Analytics = "consent_analytics",
-  Marketing = "consent_marketing",
-  Functional = "consent_functional"
-}
-
-// Array of consent items with IDs and labels
-const consentItems: { id: ConsentTypes; label: string; disabled?: boolean; isCheckedByDef?: boolean }[] = [
-  { id: ConsentTypes.Analytics, label: "Analyse Cookies" },
-  { id: ConsentTypes.Marketing, label: "Marketing Cookies" },
-  { id: ConsentTypes.Functional, label: "Funktionale Cookies (For Internal Use)", disabled: true, isCheckedByDef: true },
-];
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState, AppDispatch } from '../../store/store';
+import { 
+  ConsentTypes, 
+  consentItems, 
+  setConsentSelection, 
+  toggleCookieConsentVisibility, 
+  acceptAllConsents, 
+  declineAllConsents 
+} from '../../store/cookieConsentSlice';
 
 const CookieConsentForm: React.FC = () => {
-  const [consentSelection, setConsentSelection] = useState<ConsentTypes[]>([]);
-  const [isCookieConsentFormVisible, setIsCookieConsentFormVisible] = useState(false);
-
-  useEffect(() => {
-    const storedConsent = localStorage.getItem('cookie-consent');
-    if (storedConsent) {
-      try {
-        const parsedConsent = JSON.parse(storedConsent) as ConsentTypes[];
-        setConsentSelection(parsedConsent);
-      } catch (error) {
-        console.error("Failed to parse consent data from localStorage:", error);
-      }
-    } else {
-      // Set all consents as default
-      setConsentSelection(consentItems.filter(item => item.isCheckedByDef).map(item => item.id));
-      handleCookieConsentToggle(true)
-    }
-  }, []);
-  const handleCookieConsentToggle = (state?: boolean) => {
-    if (state !== undefined) {
-      setIsCookieConsentFormVisible(state);
-    } else {
-      setIsCookieConsentFormVisible(prev => !prev);
-    }
-  };
+  const dispatch: AppDispatch = useDispatch();
+  const consentSelection = useSelector((state: RootState) => state.cookieConsent.consentSelection);
+  const isCookieConsentFormVisible = useSelector((state: RootState) => state.cookieConsent.isCookieConsentFormVisible);
 
   // Handle checkbox changes for each consent type
   const handleConsentChange = (consentType: ConsentTypes) => {
-    setConsentSelection(prev =>
-      prev.includes(consentType)
-        ? prev.filter(type => type !== consentType)
-        : [...prev, consentType]
-    );
+    const updatedSelection = consentSelection.includes(consentType)
+      ? consentSelection.filter(type => type !== consentType)
+      : [...consentSelection, consentType];
+    dispatch(setConsentSelection(updatedSelection));
   };
 
-  // Handle Accepting the selected consents
   const handleAcceptSelected = () => {
     localStorage.setItem('cookie-consent', JSON.stringify(consentSelection));
-    setIsCookieConsentFormVisible(false);
+    dispatch(toggleCookieConsentVisibility(false));
     console.log(localStorage.getItem('cookie-consent'));
   };
 
   const handleAcceptAll = () => {
+    dispatch(acceptAllConsents());
     localStorage.setItem('cookie-consent', JSON.stringify(consentItems.map(item => item.id)));
-    setIsCookieConsentFormVisible(false);
     console.log(localStorage.getItem('cookie-consent'));
   };
 
   const handleDeclineAll = () => {
+    dispatch(declineAllConsents());
     localStorage.setItem('cookie-consent', JSON.stringify([]));
-    setIsCookieConsentFormVisible(false);
     console.log(localStorage.getItem('cookie-consent'));
   };
 

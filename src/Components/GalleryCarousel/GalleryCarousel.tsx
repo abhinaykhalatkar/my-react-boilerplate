@@ -4,6 +4,7 @@ import styles from './GalleryCarousel.module.scss';
 import Modal from '../Modal/Modal';
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
 import { AccessibilityContext } from '../../Context/accessibilityContext';
+import CircleLoader from '../CircleLoader/CircleLoader';
 
 interface ImageProps {
   src: string;
@@ -46,8 +47,9 @@ const variants = {
 const GalleryCarousel: React.FC<GalleryCarouselProps> = ({ images }) => {
   const [isCarouselOpen, setCarouselOpen] = useState(false);
   const [[selectedImage, direction], setSelectedImage] = useState([0, 0]);
+  const [isLoading, setIsLoading] = useState(true);
   const { displaySize } = useContext(AccessibilityContext);
-  const thumbnailGalleryRef = useRef<HTMLDivElement>(null); // Ref for thumbnail gallery
+  const thumbnailGalleryRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (isCarouselOpen) {
@@ -67,51 +69,46 @@ const GalleryCarousel: React.FC<GalleryCarouselProps> = ({ images }) => {
     };
 
     window.addEventListener('wheel', handleScroll);
-
-    return () => {
-      window.removeEventListener('wheel', handleScroll);
-    };
+    return () => window.removeEventListener('wheel', handleScroll);
   }, [isCarouselOpen, selectedImage]);
 
   const openCarousel = (index: number) => {
     setSelectedImage([index, 0]);
-    setCarouselOpen(true);  
+    setIsLoading(true);
+    setCarouselOpen(true);
   };
 
   const nextImage = () => {
     const newIndex = (selectedImage + 1) % images.length;
     setSelectedImage([newIndex, 1]);
-    console.log(newIndex)
-    centerThumbnail(newIndex); // Ensure selected image is centered
+    setIsLoading(true);
+    centerThumbnail(newIndex);
   };
 
   const prevImage = () => {
     const newIndex = (selectedImage - 1 + images.length) % images.length;
     setSelectedImage([newIndex, -1]);
-    console.log(newIndex)
-    centerThumbnail(newIndex); // Ensure selected image is centered
+    setIsLoading(true);
+    centerThumbnail(newIndex);
   };
 
   const setCurrentImage = (index: number) => {
     setSelectedImage([index, 0]);
-    centerThumbnail(index); // Ensure selected image is centered
+    setIsLoading(true);
+    centerThumbnail(index);
   };
 
-  // Center the selected thumbnail in the gallery
   const centerThumbnail = (index: number) => {
     if (thumbnailGalleryRef.current) {
       const gallery = thumbnailGalleryRef.current;
       const thumbnail = gallery.children[index] as HTMLElement;
       const galleryWidth = gallery.offsetWidth;
       const thumbnailWidth = thumbnail.offsetWidth;
-      const scrollPosition =thumbnail.offsetLeft - (galleryWidth - thumbnailWidth) /2;
-      
-      // Scroll to the calculated position
+      const scrollPosition = thumbnail.offsetLeft - (galleryWidth - thumbnailWidth) / 2;
       gallery.scrollTo({
         left: scrollPosition,
         behavior: 'smooth',
       });
-      console.log(scrollPosition)
     }
   };
 
@@ -124,16 +121,22 @@ const GalleryCarousel: React.FC<GalleryCarouselProps> = ({ images }) => {
             src={image.src}
             alt={image.alt}
             className={styles.galleryImage}
-            onClick={() => { if (displaySize.isDesktop) { openCarousel(index)}  }}
+            onClick={() => { if (displaySize.isDesktop) { openCarousel(index); } }}
           />
         ))}
       </div>
 
       {displaySize.isDesktop &&
-        <Modal closeBtnClass={styles.modalCloseBtn} className={styles.galleryModal} isModalOpen={isCarouselOpen} setIsModalOpen={setCarouselOpen} closeBtnText="Close">
+        <Modal
+          closeBtnClass={styles.modalCloseBtn}
+          className={styles.galleryModal}
+          isModalOpen={isCarouselOpen}
+          setIsModalOpen={setCarouselOpen}
+          closeBtnText="Close"
+        >
           <div className={styles.carouselWrapper}>
             <div className={styles.mainImageWrapper}>
-              <AnimatePresence initial={false} custom={direction}>
+              <AnimatePresence initial={false} custom={direction} mode="wait">
                 <motion.img
                   key={selectedImage}
                   src={images[selectedImage].src}
@@ -144,9 +147,12 @@ const GalleryCarousel: React.FC<GalleryCarouselProps> = ({ images }) => {
                   animate="center"
                   exit="exit"
                   transition={{ duration: 0.5 }}
+                  onLoad={() => setIsLoading(false)}
                   className={styles.mainImage}
                 />
               </AnimatePresence>
+               {/* loading screen  */}
+              {isLoading && (<CircleLoader size='medium' />)}
               <button onClick={prevImage} className={styles.prevButton}>
                 <FaChevronLeft />
               </button>
@@ -155,15 +161,13 @@ const GalleryCarousel: React.FC<GalleryCarouselProps> = ({ images }) => {
               </button>
             </div>
 
-            {/* Infinite Scrolling Thumbnail Gallery */}
             <div className={styles.thumbnailGallery} ref={thumbnailGalleryRef}>
               {images.map((image, index) => (
                 <motion.img
                   key={index}
                   src={image.src}
                   alt={image.alt}
-                  className={`${styles.thumbnailImage} ${selectedImage === index ? styles.activeThumbnail : ''
-                    }`}
+                  className={`${styles.thumbnailImage} ${selectedImage === index ? styles.activeThumbnail : ''}`}
                   onClick={() => setCurrentImage(index)}
                   whileHover={{ scale: 1.1 }}
                 />

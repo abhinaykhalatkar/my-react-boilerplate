@@ -11,6 +11,9 @@
    - [Routing](#routing)
    - [Header Component](#header-component)
    - [Cookie Consent](#cookie-consent)
+   - [Loader Component](#loader-component)
+   - [Copy File](#copy-file)
+   - [Global Info](#global-info)
 
 ---
 
@@ -85,7 +88,24 @@ consent_analytics flag is responsible to switch on Google tag manager. if GTM ne
 
 consent are save as cookie in local storage .
 also for conversion pixel of gtm usePageTracking hook can be used which need to be uncommented in app.tsx to use. this passes the conversion pixel data to data layer and then passed on to GTM
+#### Loader Component
 
+The **Loader Component** is a brush-style circle loader used to indicate loading states across your application. It is built in React and styled entirely with SCSS, utilizing an SVG mask and keyframe animations to achieve a fluctuating, brush-like effect.
+
+**Features:**
+- **Responsive Sizing:** Accepts a `size` prop (`small`, `medium`, or `large`) to determine its dimensions.
+- **Centered Display:** The loader container fills its parent element (or viewport) and centers the loader horizontally and vertically using flexbox.
+- **Animated Effect:** Uses SCSS keyframes to rotate and fluctuate in scale, creating a dynamic, non-uniform brush-stroke look.
+- **Themed Color:** Uses the primary color defined in your SCSS variables.
+
+**Usage Example:**
+
+```tsx
+import CircleLoader from './components/CircleLoader/CircleLoader';
+
+// Display the loader while data is being fetched
+{isLoading && <CircleLoader size="medium" />}
+```
 #### Copy file
 use copyToBuild.ts in util to add path of file or directory to copy them to build folder after react build is done.
 example structure 

@@ -1,5 +1,6 @@
-import { useContext, useEffect } from 'react';
-import { AccessibilityContext } from './Context/accessibilityContext';
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from './store/store';
 import './App.scss';
 import AccessibilityMenu from './Components/AccessibilityMenu/AccessibilityMenu';
 import AppRoutes from './Pages/router';
@@ -11,7 +12,8 @@ import CookieConsentForm from './Components/CookieConsent/CookieConsent';
 // import { usePageTracking } from './Components/GoogleTagManager/usePageTracking';
 
 const App: React.FC = () => {
-  const { fontSizeMag } = useContext(AccessibilityContext);
+  const fontSizeMag = useSelector((state: RootState) => state.accessibility.fontSizeMag);
+
   // usePageTracking()
   useEffect(() => {
     document.documentElement.style.fontSize = `${fontSizeMag}px`;

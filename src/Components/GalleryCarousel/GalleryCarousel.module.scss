@@ -12,6 +12,7 @@
 }
 
 .galleryModal {
+  margin-top: 1rem;
   width: 100vw !important;
   overflow: visible;
   max-width: unset !important;
@@ -109,7 +110,7 @@
 /* Thumbnail Gallery Styling */
 .thumbnailGallery {
   max-width: 100vw;
-  margin-top: 1rem;
+  
   display: flex;
   overflow-x: auto; // use auto for debugging and verify visually if needed
   padding: 20px 0;

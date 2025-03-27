@@ -11,7 +11,7 @@ module.exports = {
           options: {
             adapter: require('responsive-loader/sharp'),
             sizes: [320, 640, 960, 1080],
-            quality: 20,
+            quality: 80,
             format: 'webp',
             name: 'static/media/[name]-[width].[hash:8].[ext]',
             esModule: false,

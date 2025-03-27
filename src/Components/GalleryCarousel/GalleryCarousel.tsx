@@ -134,24 +134,26 @@ const GalleryCarousel: React.FC<GalleryCarouselProps> = ({ images }) => {
             <div className={styles.mainImageWrapper}>
               {/* Animate the main image */}
               <AnimatePresence initial={false} custom={direction} mode="wait">
-                <motion.div
-                  key={selectedImage}
-                  custom={direction}
-                  variants={variants}
-                  initial="enter"
-                  animate="center"
-                  exit="exit"
-                  transition={{ duration: 0.5 }}
-                >
-                  <ResponsiveImage
-                    imageData={images[selectedImage].imageData}
-                    alt={images[selectedImage].alt}
-                    lazyLoad={false}
-                    sizes="(max-width: 800px) 100vw, 800px"
-                    className={styles.mainImage}
-                    onLoad={() => setIsLoading(false)}
-                  />
-                </motion.div>
+                {selectedImage !== null ? (
+                  <motion.div
+                    key={selectedImage}
+                    custom={direction}
+                    variants={variants}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
+                    transition={{ duration: 0.5 }}
+                  >
+                    <ResponsiveImage
+                      imageData={images[selectedImage].imageData}
+                      alt={images[selectedImage].alt}
+                      lazyLoad={false}
+                      sizes="(max-width: 800px) 100vw, 800px"
+                      className={styles.mainImage}
+                      onLoad={() => setIsLoading(false)}
+                    />
+                  </motion.div>
+                ) : <></>}
               </AnimatePresence>
               {isLoading && (<CircleLoader size="medium" />)}
               <button onClick={prevImage} className={styles.prevButton}>

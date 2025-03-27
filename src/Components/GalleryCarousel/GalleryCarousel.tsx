@@ -95,15 +95,22 @@ const GalleryCarousel: React.FC<GalleryCarouselProps> = ({ images }) => {
     if (thumbnailGalleryRef.current) {
       const gallery = thumbnailGalleryRef.current;
       const thumbnail = gallery.children[index] as HTMLElement;
-      const galleryWidth = gallery.offsetWidth;
+  
+      // Explicitly center the thumbnail
+      const thumbnailOffset = thumbnail.offsetLeft;
       const thumbnailWidth = thumbnail.offsetWidth;
-      const scrollPosition = thumbnail.offsetLeft - (galleryWidth - thumbnailWidth) / 2;
+      const galleryWidth = gallery.offsetWidth;
+  
+      const scrollPosition = thumbnailOffset - (galleryWidth / 2) + (thumbnailWidth / 2);
+  
       gallery.scrollTo({
         left: scrollPosition,
         behavior: 'smooth',
       });
     }
   };
+  
+  
 
   return (
     <div className={styles.GalleryCarouselCompo}>
@@ -114,7 +121,7 @@ const GalleryCarousel: React.FC<GalleryCarouselProps> = ({ images }) => {
             <ResponsiveImage
               imageData={image.imageData}
               alt={image.alt}
-              lazyLoad={true}
+              lazyLoad={false}
               sizes="(max-width: 600px) 100vw, 600px"
               className={styles.galleryImage}
             />
@@ -173,7 +180,7 @@ const GalleryCarousel: React.FC<GalleryCarouselProps> = ({ images }) => {
                   <ResponsiveImage
                     imageData={image.imageData}
                     alt={image.alt}
-                    lazyLoad={true}
+                    lazyLoad={false}
                     sizes="(max-width: 200px) 100vw, 200px"
                     className={`${styles.thumbnailImage} ${selectedImage === index ? styles.activeThumbnail : ''}`}
                   />

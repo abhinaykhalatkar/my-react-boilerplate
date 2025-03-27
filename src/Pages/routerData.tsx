@@ -57,6 +57,8 @@ const routesData: RouteData[] = [
     {
         path: "/gallery",
         element: <Gallery />,
+        pageTitle:"Gallery - Page",
+        pageDescription:"this is the Gallery page",
         navName: "Gallery",
     },
     {

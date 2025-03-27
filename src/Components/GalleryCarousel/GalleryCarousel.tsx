@@ -6,9 +6,11 @@ import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
 import CircleLoader from '../CircleLoader/CircleLoader';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
+// Import our custom ResponsiveImage component.
+import ResponsiveImage, { ResponsiveImageData } from '../ResponsiveImage/ResponsiveImage';
 
-interface ImageProps {
-  src: string;
+export interface ImageProps {
+  imageData: ResponsiveImageData; // <- Update here
   alt: string;
 }
 
@@ -53,22 +55,12 @@ const GalleryCarousel: React.FC<GalleryCarouselProps> = ({ images }) => {
   const thumbnailGalleryRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (isCarouselOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-
+    document.body.style.overflow = isCarouselOpen ? 'hidden' : '';
     const handleScroll = (e: WheelEvent) => {
       if (isCarouselOpen) {
-        if (e.deltaY > 0) {
-          nextImage();
-        } else {
-          prevImage();
-        }
+        e.deltaY > 0 ? nextImage() : prevImage();
       }
     };
-
     window.addEventListener('wheel', handleScroll);
     return () => window.removeEventListener('wheel', handleScroll);
   }, [isCarouselOpen, selectedImage]);
@@ -115,19 +107,22 @@ const GalleryCarousel: React.FC<GalleryCarouselProps> = ({ images }) => {
 
   return (
     <div className={styles.GalleryCarouselCompo}>
+      {/* Gallery grid: use ResponsiveImage for each thumbnail */}
       <div className={styles.galleryGrid}>
         {images.map((image, index) => (
-          <img
-            key={index}
-            src={image.src}
-            alt={image.alt}
-            className={styles.galleryImage}
-            onClick={() => { if (displaySize.isDesktop) { openCarousel(index); } }}
-          />
+          <div key={index} onClick={() => { if (displaySize.isDesktop) openCarousel(index); }}>
+            <ResponsiveImage
+              imageData={image.imageData}
+              alt={image.alt}
+              lazyLoad={true}
+              sizes="(max-width: 600px) 100vw, 600px"
+              className={styles.galleryImage}
+            />
+          </div>
         ))}
       </div>
 
-      {displaySize.isDesktop &&
+      {displaySize.isDesktop && (
         <Modal
           closeBtnClass={styles.modalCloseBtn}
           className={styles.galleryModal}
@@ -137,23 +132,28 @@ const GalleryCarousel: React.FC<GalleryCarouselProps> = ({ images }) => {
         >
           <div className={styles.carouselWrapper}>
             <div className={styles.mainImageWrapper}>
+              {/* Animate the main image */}
               <AnimatePresence initial={false} custom={direction} mode="wait">
-                <motion.img
+                <motion.div
                   key={selectedImage}
-                  src={images[selectedImage].src}
-                  alt={images[selectedImage].alt}
                   custom={direction}
                   variants={variants}
                   initial="enter"
                   animate="center"
                   exit="exit"
                   transition={{ duration: 0.5 }}
-                  onLoad={() => setIsLoading(false)}
-                  className={styles.mainImage}
-                />
+                >
+                  <ResponsiveImage
+                    imageData={images[selectedImage].imageData}
+                    alt={images[selectedImage].alt}
+                    lazyLoad={false}
+                    sizes="(max-width: 800px) 100vw, 800px"
+                    className={styles.mainImage}
+                    onLoad={() => setIsLoading(false)}
+                  />
+                </motion.div>
               </AnimatePresence>
-               {/* loading screen  */}
-              {isLoading && (<CircleLoader size='medium' />)}
+              {isLoading && (<CircleLoader size="medium" />)}
               <button onClick={prevImage} className={styles.prevButton}>
                 <FaChevronLeft />
               </button>
@@ -162,20 +162,25 @@ const GalleryCarousel: React.FC<GalleryCarouselProps> = ({ images }) => {
               </button>
             </div>
 
+            {/* Thumbnail gallery: using ResponsiveImage for consistency */}
             <div className={styles.thumbnailGallery} ref={thumbnailGalleryRef}>
               {images.map((image, index) => (
-                <motion.img
-                  key={index}
-                  src={image.src}
-                  alt={image.alt}
-                  className={`${styles.thumbnailImage} ${selectedImage === index ? styles.activeThumbnail : ''}`}
-                  onClick={() => setCurrentImage(index)}
-                  whileHover={{ scale: 1.1 }}
-                />
+                <div key={index} onClick={() => setCurrentImage(index)}>
+
+
+                  <ResponsiveImage
+                    imageData={image.imageData}
+                    alt={image.alt}
+                    lazyLoad={true}
+                    sizes="(max-width: 200px) 100vw, 200px"
+                    className={`${styles.thumbnailImage} ${selectedImage === index ? styles.activeThumbnail : ''}`}
+                  />
+                </div>
               ))}
             </div>
           </div>
-        </Modal>}
+        </Modal>
+      )}
     </div>
   );
 };

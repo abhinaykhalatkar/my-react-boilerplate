@@ -1,29 +1,30 @@
-@import '../../styles/variables';
+@use '../../styles/variables' as vars;
+@use 'sass:color';
 
 .siteMap {
   text-align: left;
 
   h1 {
     font-size: 2.5rem;
-    color: $primaryColor;
+    color: vars.$primaryColor;
   }
 
   margin: 3rem 0;
   min-height: 30vw;
 
-  @media (max-width: ($tablet)) {
+  @media (max-width: (vars.$tablet)) {
     padding-left: 5vw;
   }
 
-  @media (min-width: ($tablet)) {
+  @media (min-width: (vars.$tablet)) {
     padding-left: 20vw;
   }
 
-  @media (max-width: ($mobile)) {
+  @media (max-width: (vars.$mobile)) {
     padding-left: 5vw;
   }
 
-  font-size: $fontSizeLarge;
+  font-size: vars.$fontSizeLarge;
 
   .sitemap {
     ul {
@@ -32,12 +33,12 @@
       margin: 0;
 
       &.setColumn {
-        @media (min-width: ($tablet)) {
+        @media (min-width: (vars.$tablet)) {
           column-count: 2;
           column-gap: 20px;
         }
 
-        @media (min-width: ($desktop)) {
+        @media (min-width: (vars.$desktop)) {
           column-count: 3;
         }
 
@@ -48,19 +49,21 @@
     .item,
     .subItem,
     .subSubItem {
+
       align-items: center;
-      color: $primaryColor;
+      color: vars.$primaryColor;
       break-inside: avoid;
       margin-bottom: 15px;
 
       &:hover {
-        color: darken($primaryColor, 40%);
+        color: color.adjust(vars.$primaryColor, $lightness: -40%);
+
       }
     }
 
     a {
       text-decoration: none;
-      color: $primaryColor;
+      color: vars.$primaryColor;
       display: inline-block;
     }
 
@@ -68,10 +71,11 @@
       margin-bottom: 20px;
 
       a {
+
         transition: transform 0.3s ease, color 0.3s ease;
 
         &:hover {
-          color: darken($primaryColor, 40%);
+          color: color.adjust(vars.$primaryColor, $lightness: -40%);
           transform: scale(1.05) translateX(10px);
         }
       }
@@ -100,6 +104,7 @@
       }
 
       a {
+
         transition: transform 0.3s ease, color 0.3s ease;
 
         &:hover {

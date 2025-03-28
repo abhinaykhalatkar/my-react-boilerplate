@@ -1,4 +1,4 @@
-@import '../../styles/variables';
+@use '../../styles/variables' as vars;
 .alertModule {
     max-width: 80vw;
     position: fixed;
@@ -13,7 +13,7 @@
     animation: fadeInOut forwards;
     animation-duration: 2s;
     color: rgb(37, 158, 37);
-    font-weight: $fontW_bold;
+    font-weight: vars.$fontW_bold;
     font-size: large;
     background-color: white;
     cursor: pointer;

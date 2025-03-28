@@ -1,17 +1,17 @@
-@import '../../styles/variables';
+@use '../../styles/variables' as vars;
 
 .container {
 
 margin-top: 4rem;
 margin: 2rem 3vw;
-max-width: $max-width;
+max-width: vars.$max-width;
 text-align: left;
 
         .heading {
-            font-size: $fontSizeLarge;
+            font-size: vars.$fontSizeLarge;
             margin-bottom: 15px;
-            color: $primaryColor;
-            font-weight: $fontW_medium;
+            color: vars.$primaryColor;
+            font-weight: vars.$fontW_medium;
             
         }
 
@@ -19,13 +19,13 @@ text-align: left;
             display: block;
             width: 51px;
             height: 5px;
-            background-color: $primaryColor;
+            background-color: vars.$primaryColor;
             border: 4px;
 
         }
         .subHeading{
-            font-size: $fontSizeLargest;
-            font-weight: $fontW_medium;
+            font-size: vars.$fontSizeLargest;
+            font-weight: vars.$fontW_medium;
         }
         .content{
             margin-top: 3rem;

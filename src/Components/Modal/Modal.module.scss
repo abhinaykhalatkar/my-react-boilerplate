@@ -1,19 +1,19 @@
-@import '../../styles/variables';
+@use '../../styles/variables' as vars;
 .vitaModule{
     width: 80vw;
-    max-width: calc($max-width - 200px);
+    max-width: calc(vars.$max-width - 200px);
     max-height: 80vh;
     overflow-Y: scroll;
-    background-color: $white;
+    background-color: vars.$white;
     display: grid;
     
     .closeButton {
         justify-self: flex-end;
         background: none;
         border: none;
-        color: $primaryColor;
-        font-size: $fontSizeRegular;
-        font-weight: $fontW_medium;
+        color: vars.$primaryColor;
+        font-size: vars.$fontSizeRegular;
+        font-weight: vars.$fontW_medium;
         cursor: pointer;
         position: absolute;
         margin-top: -30px; 

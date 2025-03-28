@@ -1,11 +1,11 @@
-@import '../../styles/variables';
+@use '../../styles/variables' as vars;
 
 
-$editorPrimaryColor: if($primaryColor != null, $primaryColor, #1b75cf);
-$editorPrimaryRed: if($primaryRed != null, $primaryColor, #ff0e0e);
-$gray: if($gray != null, $gray, #F2F2F2);
-$fontW_medium:if($fontW_medium != null, $fontW_medium, 600);
-$fontW_bold:if($fontW_bold != null, $fontW_bold, 800);
-$fontSizeRegular:if($fontSizeRegular != null, $fontSizeRegular, 1.1rem); 
-$fontSizeLarger:if($fontSizeLarger != null, $fontSizeLarger, 1.3rem); 
-$fontSizeLargerPlus:if($fontSizeLargerPlus != null, $fontSizeLargerPlus, 1.4rem); 
+vars.$editorPrimaryColor: if(vars.$primaryColor != null, vars.$primaryColor, #1b75cf);
+vars.$editorPrimaryRed: if(vars.$primaryRed != null, vars.$primaryColor, #ff0e0e);
+vars.$gray: if(vars.$gray != null, vars.$gray, #F2F2F2);
+vars.$fontW_medium:if(vars.$fontW_medium != null, vars.$fontW_medium, 600);
+vars.$fontW_bold:if(vars.$fontW_bold != null, vars.$fontW_bold, 800);
+vars.$fontSizeRegular:if(vars.$fontSizeRegular != null, vars.$fontSizeRegular, 1.1rem); 
+vars.$fontSizeLarger:if(vars.$fontSizeLarger != null, vars.$fontSizeLarger, 1.3rem); 
+vars.$fontSizeLargerPlus:if(vars.$fontSizeLargerPlus != null, vars.$fontSizeLargerPlus, 1.4rem); 

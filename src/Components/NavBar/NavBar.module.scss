@@ -1,8 +1,9 @@
-@import '../../styles/variables';
+@use '../../styles/variables' as vars;
+@use 'sass:color';
 .nav {
     display: flex;
     justify-content: center;
-    background-color: $primaryColor;
+    background-color: vars.$primaryColor;
     width: 100%;
     align-items: center;
     justify-content: space-around;
@@ -12,13 +13,13 @@
 
     .navLink {
       display: flex;
-      color: $white;
+      color: vars.$white;
       gap: 5px;
       text-decoration: none;
       white-space: nowrap;
       position: relative;
       // padding: 0px 15px;
-      font-weight: $fontW_medium;
+      font-weight: vars.$fontW_medium;
       text-wrap: wrap;
       cursor: pointer;
       justify-content: center;
@@ -27,7 +28,7 @@
 
       &.active {
         &::after {
-          background-color: $primaryColor;
+          background-color: vars.$primaryColor;
         }
       }
     }
@@ -61,7 +62,7 @@
       position: absolute;
       top: 100%;
       left: 0;
-      background-color: $primaryColor;
+      background-color: vars.$primaryColor;
 
       width: 100%;
       display: flex;
@@ -72,8 +73,8 @@
       .navLink{
         padding: 10px;
        &:hover{
-        color: $primaryColor;
-        background-color: $secondaryColor;
+        color: vars.$primaryColor;
+        background-color: vars.$secondaryColor;
        }
       }
 
@@ -83,24 +84,22 @@
     }
 
     .dropdownItem {
-      color: $white;
+      &:hover {
+        background-color: color.scale(vars.$secondaryColor, $lightness: 10%);
+      }
+      color: vars.$white;
       text-decoration: none;
       padding: 15px;
       display: flex;
       justify-content: space-between;
-      align-items: center;
-
-      &:hover {
-      
-        background-color: lighten($secondaryColor, 10%);
-      }
+      align-items: center; 
     }
 
     .underline {
       position: absolute;
       bottom: 10px;
       height: 2px;
-      background-color: $secondaryColor;
+      background-color: vars.$secondaryColor;
       left: 0;
       width: 0;
     }

@@ -1,9 +1,9 @@
-@import '../editorVariables';
+@use '../editorVariables' as vars;
 
 
 .authForm {
     min-width: 350px;
-    background: linear-gradient(to bottom right, $gray, $gray);
+    background: linear-gradient(to bottom right, vars.$gray, vars.$gray);
     text-align: center;
     z-index: 5;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
@@ -18,17 +18,17 @@
     border-radius: 15px;
     .successWarning{
         color: rgb(37, 158, 37);
-        font-weight: $fontW_bold;
+        font-weight: vars.$fontW_bold;
         font-size: large;
     }
     .failWarning{
         color: rgb(238, 66, 66);
-        font-weight: $fontW_bold;
+        font-weight: vars.$fontW_bold;
         font-size: large;
     }
 
     .inp {
-        font-size: $fontSizeLargerPlus;
+        font-size: vars.$fontSizeLargerPlus;
         position: relative;
         margin: auto;
         width: 100%;
@@ -59,7 +59,7 @@
         transition-delay: 0.15s;
       }
       .inp .check path {
-        stroke: $editorPrimaryColor;
+        stroke: vars.$editorPrimaryColor;
         stroke-width: 2;
       }
       .inp input {
@@ -68,10 +68,10 @@
         border: 0;
         padding: 0;
         height: 48px;
-        font-size: $fontSizeLargerPlus;
+        font-size: vars.$fontSizeLargerPlus;
         background: none;
         border-radius: 0;
-        color: $editorPrimaryColor;
+        color: vars.$editorPrimaryColor;
         transition: all 0.15s ease;
       }
     
@@ -79,7 +79,7 @@
         outline: none;
       }
       .inp input:focus + .border path {
-        stroke: $editorPrimaryColor;
+        stroke: vars.$editorPrimaryColor;
       }
       .inp input:valid + .border path {
         animation: elasticInput 1s ease forwards;
@@ -124,7 +124,7 @@
       }
 .btnBlock{
   .submit,.cancel{
-    font-size: $fontSizeLarger;
+    font-size: vars.$fontSizeLarger;
     border-radius: 10px;
     border: none;
     color: white;
@@ -138,7 +138,7 @@
     background-color: #ff0e0e;
   }
   .submit{
-    background-color: $editorPrimaryColor;
+    background-color: vars.$editorPrimaryColor;
   }
 }
 

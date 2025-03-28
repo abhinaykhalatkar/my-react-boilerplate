@@ -1,4 +1,4 @@
-@import './Styles/variables';
+@use './Styles/variables' as vars;
 .App {
   text-align: center;
   .pageBody{

@@ -1,4 +1,4 @@
-@import '../../styles/variables'; // Make sure $primaryColor is defined here
+@use '../../styles/variables' as vars; // Make sure vars.$primaryColor is defined here
 
 .loaderContainer {
   position: absolute; 
@@ -13,7 +13,7 @@
 }
 
 .loader {
-  background-color: $primaryColor;
+  background-color: vars.$primaryColor;
 
   /* Masking the loader with the brush circle */
   -webkit-mask: url('../../Assets/brush-circle.svg') no-repeat center / contain;

@@ -1,7 +1,7 @@
-@import '../../../styles/variables';
+@use '../../../styles/variables' as vars;
 
 .EditorCard {
-    background: linear-gradient(to bottom right, $gray, $gray);
+    background: linear-gradient(to bottom right, vars.$gray, vars.$gray);
     text-align: center;
     z-index: 3; 
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
@@ -73,22 +73,22 @@
     }
 
     header {
-        font-size: $fontSizeLargest;
+        font-size: vars.$fontSizeLargest;
         margin-bottom: 1.5rem;
         position: relative;
         
         h2 {
             display: inline;
             padding: 4px;
-            border-bottom: 1px solid $bluePrimary;
-            color: $bluePrimary;
+            border-bottom: 1px solid vars.$bluePrimary;
+            color: vars.$bluePrimary;
         }
 
         .closeBtn {
             position: absolute;
             top: 10px;
             right: 10px;
-            background-color: $bluePrimary;
+            background-color: vars.$bluePrimary;
             color: white;
             border: none;
             border-radius: 50%;
@@ -107,7 +107,7 @@
     .content {
         text-align: center;
         padding: 16px;
-        font-size: $fontSizeLarge;
+        font-size: vars.$fontSizeLarge;
         width: 100%;
     }
 

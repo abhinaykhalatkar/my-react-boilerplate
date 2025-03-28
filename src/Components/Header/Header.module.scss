@@ -1,25 +1,27 @@
-@import '../../styles/variables';
+@use '../../styles/variables' as vars;
+@use 'sass:color';
 
 .header {
-  font-size: $fontSizeSmaller;
+  font-size: vars.$fontSizeSmaller;
   margin-bottom: 4rem;
 
   @media (min-width: 1500px) {
-    max-width: $max-width;
+    max-width: vars.$max-width;
     margin-left: auto;
     margin-right: auto;
-    font-size: $fontSizeRegular;
+    font-size: vars.$fontSizeRegular;
   }
 
-  .subRouteIcon,.svgIconsR {
-    color: $primaryColor;
+  .subRouteIcon,
+  .svgIconsR {
+    color: vars.$primaryColor;
     vertical-align: middle;
-    margin-left: 8px; 
-    font-size: 0.75rem; 
+    margin-left: 8px;
+    font-size: 0.75rem;
   }
 
-  .subRouteIcon{
-    color: $secondaryColor;
+  .subRouteIcon {
+    color: vars.$secondaryColor;
   }
 
   .topBar {
@@ -32,13 +34,15 @@
       display: flex;
       align-items: center;
       gap: 15px;
-      font-weight: $fontW_medium;
+      font-weight: vars.$fontW_medium;
 
       .actionLink {
-        color: $primaryColor;
+
+
+        color: vars.$primaryColor;
         text-decoration: none;
         padding-right: 20px;
-        border-right: 3px solid $gray;
+        border-right: 3px solid vars.$gray;
 
         &:hover {
           text-decoration: none;
@@ -46,7 +50,9 @@
       }
 
       .phoneNumber {
-        color: $primaryColor;
+
+
+        color: vars.$primaryColor;
         text-decoration: none;
 
         &:hover {
@@ -55,8 +61,10 @@
       }
 
       .bookButton {
-        background-color: $primaryColor;
-        color: $white;
+      
+
+        background-color: vars.$primaryColor;
+        color: vars.$white;
         display: flex;
         text-decoration: none;
         height: 60px;
@@ -65,7 +73,7 @@
         cursor: pointer;
 
         &:hover {
-          background-color: lighten($primaryColor, 20%);
+          background-color: color.scale(vars.$primaryColor, $lightness: 20%);
         }
       }
     }
@@ -74,10 +82,10 @@
       display: none;
       background: none;
       border: none;
-      color: $primaryColor;
+      color: vars.$primaryColor;
       cursor: pointer;
 
-      @media (max-width: $tablet) {
+      @media (max-width: vars.$tablet) {
         display: block;
       }
     }
@@ -94,20 +102,23 @@
 
       img {
         height: 100%;
+
         // transform-origin: bottom;
         // transform: scaleY(1.1);
-        @media (min-width:( $desktop +200)) {
+        @media (min-width: (vars.$desktop + 200)) {
           // height: 117%;
           // width: 77%;
           // transform-origin: bottom;
           // transform: scaleY(1.3);      
         }
+
         max-width: 156px;
 
       }
     }
   }
-  @media (max-width: $tablet) {
+
+  @media (max-width: vars.$tablet) {
     .botBar {
       display: none;
     }

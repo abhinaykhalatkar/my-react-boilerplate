@@ -1,3 +1,4 @@
+@use './Styles/variables' as vars;
 
 @tailwind base;
 @tailwind components;
@@ -5,30 +6,29 @@
 
 // rest of your existing SCSS imports
 
-@import './Styles/variables';
 
 ::-webkit-scrollbar {
   width: 8px; /* Width of the scrollbar */
 }
 
 ::-webkit-scrollbar-track {
-  background: $white; /* Background of the track */
+  background: vars.$white; /* Background of the track */
   border-radius: 10px; /* Rounded corners */
 }
 
 ::-webkit-scrollbar-thumb {
-  background: $white; /* Color of the scrollbar */
+  background: vars.$white; /* Color of the scrollbar */
   border-radius: 10px; /* Rounded corners */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: $black; /* Color when hovered */
+  background: vars.$black; /* Color when hovered */
 }
 
 /* For Firefox */
 * {
   scrollbar-width: thin; /* Thin scrollbar */
-  scrollbar-color:$black $white ; /* Scrollbar color and track color */
+  scrollbar-color:vars.$black vars.$white ; /* Scrollbar color and track color */
 }
 body {
   margin: 0;
@@ -38,7 +38,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -ms-overflow-style: -ms-autohiding-scrollbar;
-  color: $black;
+  color: vars.$black;
 }
 
 code {

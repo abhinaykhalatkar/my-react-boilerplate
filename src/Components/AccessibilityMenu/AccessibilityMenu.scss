@@ -1,9 +1,9 @@
-@import "../../Styles/variables";
+@use "../../Styles/variables" as vars;
 
 .accessibility-menu {
     position: fixed;
     right: -100%;
-    background-color: $white;
+    background-color: vars.$white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     z-index: 3;
     transition: right 0.3s ease-in;
@@ -16,7 +16,7 @@
 }
 
 .accessibility-icon {
-    color: $primaryColor;
+    color: vars.$primaryColor;
     position: fixed;
     bottom: 1px;
     right: 10px;
@@ -34,7 +34,7 @@
     width: 300px;
     padding: 20px 20px 20px 0;
     z-index: 4;
-    background-color: $white;
+    background-color: vars.$white;
     border-radius: 5px;
     justify-content: space-between;
      align-items: center;
@@ -49,8 +49,8 @@
     }
 
     .close_Icon {
-        color: $primaryColor;
-        font-size: $fontSizeLargest;
+        color: vars.$primaryColor;
+        font-size: vars.$fontSizeLargest;
         display: flex;
         align-items: center;
     }
@@ -62,19 +62,18 @@
         h3 {
             margin: 0;
             width:170px;
-            color: $black;
+            color: vars.$black;
         }
 
         .circle {
             position: relative;
-            border: 2px solid $primaryColor;
+            border: 2px solid vars.$primaryColor;
             border-radius: 50%;
             height: 20px;
             width: 20px;
             align-self: center;
             margin: 0 10px;
             transition: transform 0.3s ease;
-
             &:hover {
                 transform: scale(1.3);
             }
@@ -82,7 +81,7 @@
             .hor-line,
             .ver-line {
                 position: absolute;
-                background-color: $primaryColor;
+                background-color: vars.$primaryColor;
                 left: 50%;
                 top: 50%;
                 transform: translate(-50%, -50%);

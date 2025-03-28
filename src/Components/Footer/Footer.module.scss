@@ -1,14 +1,14 @@
-@import '../../styles/variables';
+@use '../../styles/variables' as vars;
 
 .Footer {
     position: relative;
     bottom: 0;
     max-width: 100vw;
-    background-color: $secondaryColor;
+    background-color: vars.$secondaryColor;
     padding: 20px;
     text-align: center;
     font-size: 14px;
-    color: $black;
+    color: vars.$black;
 }
 
 .footerLinks {
@@ -24,7 +24,7 @@
         
         a {
             text-decoration: none;
-            color: $black;
+            color: vars.$black;
             &:hover {
                 text-decoration: underline;
             }

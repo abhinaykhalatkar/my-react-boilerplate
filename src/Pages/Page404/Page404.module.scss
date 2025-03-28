@@ -1,14 +1,14 @@
-@import '../../Styles/variables';
+@use '../../Styles/variables' as vars;
 
 .Page404 {
     height: 50vh;
     margin-top: 20vh;
 
     h2 {
-        color: $black;
+        color: vars.$black;
     }
 
     .link {
-        color: $primaryColor;
+        color: vars.$primaryColor;
     }
 }

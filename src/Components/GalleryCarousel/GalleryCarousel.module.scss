@@ -1,12 +1,12 @@
 /* Gallery Grid Styling */
-@import '../../styles/variables';
+@use '../../styles/variables' as vars;
 
 
 .GalleryCarouselCompo {
   .modalCloseBtn {
     margin-top: 20px !important;
     margin-right: 20px !important;
-    font-weight: $fontW_medium;
+    font-weight: vars.$fontW_medium;
 
   }
 }
@@ -28,20 +28,20 @@
   padding: 20px;
   grid-template-columns: repeat(4, 1fr);
   /* Default for desktop */
-  max-width: $max-width;
+  max-width: vars.$max-width;
   margin: auto;
   justify-items: center;
 
 
 
   /* Tablet View */
-  @media (max-width: $desktop) {
+  @media (max-width: vars.$desktop) {
     grid-template-columns: repeat(2, 1fr);
     /* 3 columns for tablets */
   }
 
   /* Mobile View */
-  @media (max-width: $miniTab) {
+  @media (max-width: vars.$miniTab) {
     grid-template-columns: repeat(1, 1fr);
     /* 1 column for smaller screens */
   }
@@ -51,7 +51,7 @@
   // width: auto;
   max-width: min-content;
   max-height: 300px;
-  @media (min-width: $desktop) {
+  @media (min-width: vars.$desktop) {
   
   //  max-width: 300px;
     height: 200px;
@@ -134,7 +134,7 @@
 }
 
 .activeThumbnail {
-  border: 3px solid $secondaryColor;
+  border: 3px solid vars.$secondaryColor;
   opacity: 1;
 }
 
@@ -149,7 +149,7 @@
   position: fixed;
   top: 45%;
   background: rgba(0, 0, 0, 0.082);
-  color: $secondaryColor;
+  color: vars.$secondaryColor;
   border: none;
   font-size: 24px;
   cursor: pointer;
@@ -177,7 +177,7 @@
 // .closeButton {
 //   margin-top: 20px;
 //   background: transparent;
-//   color: $primaryColor;
+//   color: vars.$primaryColor;
 //   font-size: 18px;
 //   border: none;
 //   cursor: pointer;

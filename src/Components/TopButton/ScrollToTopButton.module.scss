@@ -1,6 +1,7 @@
-@import '../../styles/variables';
+@use '../../styles/variables' as vars;
 
 .scrollToTop {
+   
     position: fixed;
     bottom: 80px;
     right: 13px;
@@ -8,7 +9,7 @@
     width: 40px;
     padding: 10px 10px;
     font-size: 1rem;
-    background-color: $primaryColor;
+    background-color: vars.$primaryColor;
     color: white;
     border: none;
     border-radius: 5px;
@@ -16,38 +17,7 @@
     opacity: 0.7;
     transition: opacity 0.3s;
     z-index: 1;
-
     &:hover {
         opacity: 1;
     }
-// @media (max-width:($miniTab)) {
- 
-//     display: flex;
-//     flex-direction: row;
-//     flex-wrap: nowrap;
-//      align-content: center; 
-//     justify-content: center;
-//     align-items: center;
-    
-// }
-    // @media (min-width: ($desktop)) {
-       
-    //    position: fixed;
-    //     img {
-    //         // height: 50px;
-    //         vertical-align: middle;
-    //         // width: 50px;
-    //     }
-    // }
-    // @media (min-width:($tablet)) {
-    //     position: fixed;
-        
-    // }
-    // @media (max-width: ($miniTab))  {
-    //     margin-top: 10px;
-    // }
-    // @media (max-width: ($mobile)) {
-    //     margin-top: 10px;
-    // }
-
 }

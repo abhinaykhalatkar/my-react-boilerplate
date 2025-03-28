@@ -1,8 +1,8 @@
-@import '../../styles/variables';
+@use '../../styles/variables' as vars;
 .breadcrumb {
-    font-size: $fontSizeLarge;
+    font-size: vars.$fontSizeLarge;
     margin-bottom: 1rem;
-    font-weight: $fontW_medium;
+    font-weight: vars.$fontW_medium;
   }
   
   .breadcrumb ul {
@@ -14,18 +14,18 @@
   
   .breadcrumb li {
     display: inline;
-    color:$primaryColor;
+    color:vars.$primaryColor;
   }
   
   .breadcrumb li + li:before {
     content: ' > ';
     padding: 0 8px;
-    color:$primaryColor;
+    color:vars.$primaryColor;
   }
   
   .breadcrumb li a {
     text-decoration: none;
-    color:  $primaryColor;
+    color:  vars.$primaryColor;
     text-transform: capitalize;
   }
   
@@ -34,7 +34,7 @@
   }
   
   .breadcrumb li span {
-    color:$primaryColor;
+    color:vars.$primaryColor;
     text-transform: capitalize;
 
   }

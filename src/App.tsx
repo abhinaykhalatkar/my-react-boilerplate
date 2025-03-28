@@ -19,14 +19,14 @@ const App: React.FC = () => {
     document.documentElement.style.fontSize = `${fontSizeMag}px`;
   }, [fontSizeMag]);
   return (
-    <div className="App">
+    <div className="App min-h-screen">
       {/* <EditorMain/> */}
       <CookieConsentForm />
       {/* git test */}
       <ScrollToTopFunction />
       <AccessibilityMenu />
       <Header />
-      <div className='pageBody'>
+      <div className='flex-grow'>
         <AppRoutes />
       </div>
       <Footer />

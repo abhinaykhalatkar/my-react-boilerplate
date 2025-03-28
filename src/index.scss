@@ -1,4 +1,12 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// rest of your existing SCSS imports
+
 @import './Styles/variables';
+
 ::-webkit-scrollbar {
   width: 8px; /* Width of the scrollbar */
 }

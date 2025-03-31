@@ -24,10 +24,10 @@ const Header: React.FC = () => {
         <header className={styles.header}>
           <div className={styles.topBar}>
             <div className={styles.actions}>
-              <Link to="/gallery" className={styles.actionLink}>
+              <Link to="/gallery" className={`${styles.actionLink} flex`}>
                 <FaImage className={styles.svgIconsR} /> Gallery
               </Link>
-              <Link to={`tel:${companyPhoneNumber}`} className={styles.phoneNumber}>
+              <Link to={`tel:${companyPhoneNumber}`} className={`${styles.phoneNumber} flex`}>
                 <FaPhone className={styles.svgIconsR} /> {companyPhoneNumber}
               </Link>
               <div className={styles.bookButton} onClick={() => alert("clicked")}>

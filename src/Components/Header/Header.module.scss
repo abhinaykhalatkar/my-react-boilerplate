@@ -35,6 +35,10 @@
       align-items: center;
       gap: 15px;
       font-weight: vars.$fontW_medium;
+      a{
+        align-items: center;
+        white-space-collapse: preserve;
+      }
 
       .actionLink {
 

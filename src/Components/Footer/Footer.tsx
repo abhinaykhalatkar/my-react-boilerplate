@@ -2,16 +2,12 @@ import React from 'react';
 import styles from './Footer.module.scss';
 import { Link } from 'react-router-dom';
 import { companyName } from '../../Global-Info';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState, AppDispatch } from '../../store/store';
+import { useDispatch,  } from 'react-redux';
+import { AppDispatch } from '../../store/store';
 import { toggleCookieConsentVisibility } from '../../store/cookieConsentSlice';
 
 const Footer: React.FC = () => {
     const dispatch: AppDispatch = useDispatch();
-    const isCookieConsentVisible = useSelector(
-        (state: RootState) => state.cookieConsent.isCookieConsentFormVisible
-    );
-
     const handleCookieConsentToggle = () => {
         // Dispatching without a payload toggles the visibility.
         dispatch(toggleCookieConsentVisibility());

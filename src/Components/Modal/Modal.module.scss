@@ -8,6 +8,8 @@
     display: grid;
     
     .closeButton {
+      display: flex;
+      align-items: center;
         justify-self: flex-end;
         background: none;
         border: none;

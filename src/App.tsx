@@ -9,6 +9,7 @@ import ScrollToTopFunction from "./Components/UI/TopButton/ScrollToTopButton"
 import Header from './Components/UI/Header/Header';
 import Footer from './Components/UI/Footer/Footer';
 import CookieConsentForm from './Components/UI/CookieConsent/CookieConsent';
+import ResponsiveUpdaterOnResize from '@Util/ResponsiveUpdaterOnResize/ResponsiveUpdaterOnResize';
 // import { usePageTracking } from './Components/GoogleTagManager/usePageTracking';
 
 const App: React.FC = () => {
@@ -20,6 +21,7 @@ const App: React.FC = () => {
   }, [fontSizeMag]);
   return (
     <div className="App min-h-screen">
+      <ResponsiveUpdaterOnResize/>
       {/* <EditorMain/> */}
       <CookieConsentForm />
       {/* git test */}

@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './Gallery.module.scss';
-import ComponentContainer from '../../Components/ComponentContainer/ComponentContainer';
-import GalleryCarousel from '../../Components/GalleryCarousel/GalleryCarousel';
-import { ResponsiveImageData } from '../../Components/ResponsiveImage/ResponsiveImage';
+import ComponentContainer from '@UI/ComponentContainer/ComponentContainer';
+import GalleryCarousel from '../../Components/UI/GalleryCarousel/GalleryCarousel';
+import { ResponsiveImageData } from '@Util/ResponsiveImage/ResponsiveImage';
 import galleryImg1 from '../../Assets/placeholderImage/image1.jpeg';
 import galleryImg2 from '../../Assets/placeholderImage/image2.jpeg';
 import galleryImg3 from '../../Assets/placeholderImage/image3.jpeg';

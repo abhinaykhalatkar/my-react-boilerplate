@@ -1,0 +1,35 @@
+@use '@styles/variables' as vars;
+.Footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    background-color: vars.$secondaryColor;
+    padding: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: vars.$black;
+}
+
+.footerLinks {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0 0 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+
+    li {
+        display: inline;
+        
+        a {
+            text-decoration: none;
+            color: vars.$black;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+        &.cookieConsentButton{
+            cursor: pointer;
+        }
+    }
+}

@@ -3,7 +3,7 @@ import styles from './Home.module.scss';
 // import EditorOutputComponent from '../../Components/Editor/EditorOutputComponent/EditorOutputComponent';
 // import Modal from '../../Components/Modal/Modal';
 import { useState } from 'react';
-import ComponentContainer from '../../Components/ComponentContainer/ComponentContainer';
+import ComponentContainer from '@UI/ComponentContainer/ComponentContainer';
 // import Breadcrumbs from '../../Components/Breadcrumbs/Breadcrumbs';
 
 

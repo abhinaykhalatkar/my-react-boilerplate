@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Contact.module.scss';
-import ComponentContainer from '../../Components/ComponentContainer/ComponentContainer';
+import ComponentContainer from '@UI/ComponentContainer/ComponentContainer';
 
 const Contact: React.FC = () => {
     return (

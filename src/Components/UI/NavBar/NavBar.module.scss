@@ -1,0 +1,106 @@
+@use '@styles/variables' as vars;
+@use 'sass:color';
+.nav {
+    display: flex;
+    justify-content: center;
+    background-color: vars.$primaryColor;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    text-transform: capitalize;
+
+
+    .navLink {
+      display: flex;
+      color: vars.$white;
+      gap: 5px;
+      text-decoration: none;
+      white-space: nowrap;
+      position: relative;
+      // padding: 0px 15px;
+      font-weight: vars.$fontW_medium;
+      text-wrap: wrap;
+      cursor: pointer;
+      justify-content: center;
+      text-align: center;
+
+
+      &.active {
+        &::after {
+          background-color: vars.$primaryColor;
+        }
+      }
+    }
+
+    .dropdownWrapper {
+      position: relative;
+      height: 100%;
+      width: fit-content;
+
+      .svgIconsR {
+        transition: opacity 0.3s ease;
+      }
+
+      .iconHidden {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .svgIconsR:not(.iconHidden) {
+        opacity: 1;
+        visibility: visible;
+      }
+      .navLink{
+        height: 100%;
+        align-items: center;
+        padding: 0 20px;
+      }
+    }
+
+    .dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: vars.$primaryColor;
+
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      z-index: 12;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      margin-top: 0px;
+      .navLink{
+        padding: 10px;
+       &:hover{
+        color: vars.$primaryColor;
+        background-color: vars.$secondaryColor;
+       }
+      }
+
+      // @media (min-width: 1500px) {
+      //   margin-top: 14px;
+      // }
+    }
+
+    .dropdownItem {
+      &:hover {
+        background-color: color.scale(vars.$secondaryColor, $lightness: 10%);
+      }
+      color: vars.$white;
+      text-decoration: none;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center; 
+    }
+
+    .underline {
+      position: absolute;
+      bottom: 10px;
+      height: 2px;
+      background-color: vars.$secondaryColor;
+      left: 0;
+      width: 0;
+    }
+  }

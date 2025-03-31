@@ -6,6 +6,7 @@
       "dom.iterable",
       "esnext"
     ],
+
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -18,14 +19,21 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "baseUrl": "./src",
+    "paths": {
+      "@UI/*": ["Components/UI/*"],
+      "@Util/*": ["Components/Util/*"],
+      "@styles/*": ["styles/*"],
+      "@Store/*": ["store/*"],
+      "@Pages/*": ["Pages/*"],
+    },
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/global.d.ts"],
-
   "exclude": [
-    "src/Components/Editor",
-    "src/Components/AlertModule",
-    "src/Components/TopButton",
+    "src/Components/UI//Editor",
+    "src/Components/UI/AlertModule",
+    "src/Components/UI/TopButton",
     // "src/Components/Backdrop"
   ]
 }

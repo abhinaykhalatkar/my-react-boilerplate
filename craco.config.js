@@ -1,5 +1,13 @@
+const path = require('path');
 module.exports = {
   webpack: {
+    alias: {
+      '@UI': path.resolve(__dirname, 'src/Components/UI'),
+      '@Util': path.resolve(__dirname, 'src/Components/Util'),
+      '@styles': path.resolve(__dirname, 'src/styles'),
+      '@Store': path.resolve(__dirname, 'src/store'),
+      '@Pages': path.resolve(__dirname, 'src/Pages'),
+    },
     configure: (webpackConfig) => {
       const oneOfRule = webpackConfig.module.rules.find((rule) => rule.oneOf);
       if (!oneOfRule) return webpackConfig;

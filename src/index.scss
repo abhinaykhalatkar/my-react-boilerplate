@@ -1,7 +1,7 @@
-@use './Styles/variables' as vars;
+@use '@styles/variables' as vars;
 
 // Then import Tailwind’s directives
-@import "./styles/tailwind.scss";
+@import "@styles/tailwind.scss";
 
 // Then import Tailwind separately here (after @use)
 

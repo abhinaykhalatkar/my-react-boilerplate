@@ -3,8 +3,8 @@ import styles from './Footer.module.scss';
 import { Link } from 'react-router-dom';
 import { companyName } from '../../../Global-Info';
 import { useDispatch,  } from 'react-redux';
-import { AppDispatch } from '../../../store/store';
-import { toggleCookieConsentVisibility } from '../../../store/cookieConsentSlice';
+import { AppDispatch } from '@Store/store';
+import { toggleCookieConsentVisibility } from '@Store/cookieConsentSlice';
 
 const Footer: React.FC = () => {
     const dispatch: AppDispatch = useDispatch();

@@ -2,8 +2,8 @@ import { useState } from "react";
 import "./AccessibilityMenu.scss";
 import { FaAnglesRight, FaUniversalAccess } from "react-icons/fa6";
 import { useDispatch } from "react-redux";
-import { AppDispatch } from "../../../store/store";
-import { increaseFontSize, decreaseFontSize } from "../../../store/accessibilitySlice";
+import { AppDispatch } from "@Store/store";
+import { increaseFontSize, decreaseFontSize } from "@Store/accessibilitySlice";
 
 export default function AccessibilityMenu() {
   const [isOpen, setIsOpen] = useState(false);

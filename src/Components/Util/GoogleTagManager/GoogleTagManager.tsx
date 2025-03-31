@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 
-import { ConsentTypes } from '../../../store/cookieConsentSlice';
+import { ConsentTypes } from '@Store/cookieConsentSlice';
 interface GoogleTagManagerProps {
   consentSelection: ConsentTypes[];
 }

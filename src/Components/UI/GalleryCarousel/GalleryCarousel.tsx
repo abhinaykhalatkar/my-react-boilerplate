@@ -5,7 +5,7 @@ import Modal from '../Modal/Modal';
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
 import CircleLoader from '../CircleLoader/CircleLoader';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../../store/store';
+import { RootState } from '@Store/store';
 // Import our custom ResponsiveImage component.
 
 import ResponsiveImage,{ ResponsiveImageData } from "../../Util/ResponsiveImage/ResponsiveImage"

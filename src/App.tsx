@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { RootState } from './store/store';
+import { RootState } from '@Store/store';
 import './App.scss';
 import AccessibilityMenu from './Components/UI/AccessibilityMenu/AccessibilityMenu';
 import AppRoutes from './Pages/router';

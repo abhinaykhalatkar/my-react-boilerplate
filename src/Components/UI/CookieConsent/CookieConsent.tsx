@@ -4,7 +4,7 @@ import styles from "./CookieConsent.module.scss";
 import BackDrop from '../Backdrop/BackDrop';
 import GoogleTagManager from '../../Util/GoogleTagManager/GoogleTagManager';
 import { useSelector, useDispatch } from 'react-redux';
-import { RootState, AppDispatch } from '../../../store/store';
+import { RootState, AppDispatch } from '@Store/store';
 import { 
   ConsentTypes, 
   consentItems, 
@@ -12,7 +12,7 @@ import {
   toggleCookieConsentVisibility, 
   acceptAllConsents,  
   declineAllConsents 
-} from '../../../store/cookieConsentSlice';
+} from '@Store/cookieConsentSlice';
 
 const CookieConsentForm: React.FC = () => {
   const dispatch: AppDispatch = useDispatch();

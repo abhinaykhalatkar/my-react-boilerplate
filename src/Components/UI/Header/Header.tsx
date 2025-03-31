@@ -5,7 +5,7 @@ import companyLogo from '../../../Assets/logo.png';
 import { FaPhone, FaImage } from 'react-icons/fa6';
 import { companyPhoneNumber, companyName } from '../../../Global-Info';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../../store/store';
+import { RootState } from '@Store/store';
 import Sidebar from '../Sidebar/Sidebar';
 import Nav from '../NavBar/NavBar';
 

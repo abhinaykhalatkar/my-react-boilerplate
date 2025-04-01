@@ -43,6 +43,22 @@ module.exports = {
           },
         },
       });
+// in case of webp keep same
+      oneOfRule.oneOf.unshift({
+        test: /\.webp$/i,
+        use: {
+          loader: 'responsive-loader',
+          options: {
+            adapter: require('responsive-loader/sharp'),
+            sizes: [320, 640, 960, 1080],
+            quality: 100, // Use quality 100 to preserve the original quality
+            // Do not set the "format" option so that it remains WebP
+            name: 'static/media/[name]-[width].[hash:8].[ext]',
+            esModule: false,
+            withoutEnlargement: true,
+          },
+        },
+      });
 
       return webpackConfig;
     },

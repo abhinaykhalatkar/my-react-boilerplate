@@ -7,6 +7,7 @@ module.exports = {
       '@styles': path.resolve(__dirname, 'src/styles'),
       '@Store': path.resolve(__dirname, 'src/store'),
       '@Pages': path.resolve(__dirname, 'src/Pages'),
+      '@Assets': path.resolve(__dirname, 'src/Assets'),
     },
     configure: (webpackConfig) => {
       const oneOfRule = webpackConfig.module.rules.find((rule) => rule.oneOf);

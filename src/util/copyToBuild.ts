@@ -9,10 +9,10 @@ const buildDir = path.join(rootDir, 'build');
 let copyList:{source:string, destination:string}[] 
 copyList= [
 //starts from project root
-    // {
-    //     source: path.join(rootDir, 'mailer-api'),
-    //     destination: path.join(buildDir, 'mailer-api')
-    // },
+    {
+        source: path.join(rootDir, 'PHPMailer'),
+        destination: path.join(buildDir, 'PHPMailer')
+    },
     // {
     //     source: path.join(rootDir, '.env'),
     //     destination: path.join(buildDir, 'mailer-api/.env')

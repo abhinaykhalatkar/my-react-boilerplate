@@ -27,6 +27,7 @@
       "@styles/*": ["styles/*"],
       "@Store/*": ["store/*"],
       "@Pages/*": ["Pages/*"],
+      "@Assets/*": ["Assets/*"],
     },
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/global.d.ts"],

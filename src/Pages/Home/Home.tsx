@@ -5,7 +5,7 @@ import styles from './Home.module.scss';
 import { useState } from 'react';
 import ComponentContainer from '@UI/ComponentContainer/ComponentContainer';
 // import Breadcrumbs from '../../Components/Breadcrumbs/Breadcrumbs';
-
+import DarkModeToggle from '@UI/Buttons/DarkModeToggle/DarkModeToggleBtn';
 
 const Home: React.FC = () => {
     // const [isModalOpen,setIsModalOpen]=useState(false)
@@ -17,7 +17,7 @@ const Home: React.FC = () => {
         <div className={styles.container}>
             <ComponentContainer heading='Home' containerClassName={`container ${styles.Home}`}>
                 <>
-                
+                <DarkModeToggle/>
                  </>
             </ComponentContainer>
             {/* <button onClick={handleSetModalOpen}><h1>open</h1></button> */}

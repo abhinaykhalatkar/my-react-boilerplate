@@ -14,8 +14,8 @@
         background: none;
         border: none;
         color: vars.$primaryColor;
-        font-size: vars.$fontSizeRegular;
-        font-weight: vars.$fontW_bold;
+        font-size: vars.$fontSize-regular;
+        font-weight: vars.$fontWeight-bold;
         -webkit-text-stroke: 0.5px vars.$graysecond;
         cursor: pointer;
         position: absolute;

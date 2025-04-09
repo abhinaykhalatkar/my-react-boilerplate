@@ -18,12 +18,12 @@
     border-radius: 15px;
     .successWarning{
         color: rgb(37, 158, 37);
-        font-weight: vars.$fontW_bold;
+        font-weight: vars.$fontWeight-bold;
         font-size: large;
     }
     .failWarning{
         color: rgb(238, 66, 66);
-        font-weight: vars.$fontW_bold;
+        font-weight: vars.$fontWeight-bold;
         font-size: large;
     }
 

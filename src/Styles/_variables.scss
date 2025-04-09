@@ -1,31 +1,51 @@
-$primaryColor: #8872ff; 
-$secondaryColor:#f6fcfc;
+/* colors tokens */
+$brand-light: #E7D4C6;
+$brand-faint: #F9F4F0;
+$brand-dark: #364349;
+$bg-light: #ffffff;
+$bg-subtle: #F9F4F0;
+$bg-dark: #1F2A30;
+$bg-muted: #293841;
+$text-main: #C9A48F;
+$text-light: #29332E;
+$text-muted: #6B7280;
+$text-dark: #F3F4F6;
+$text-darkMuted: #94A3B8;
+$accent-brown: #CBB6A6;
+$accent-borderLight: #E5E7EB;
+$accent-borderDark: #475569;
+$primaryColor: #E7D4C6;
+$secondaryColor: #364349;
 $white: #ffffff;
-// $bluePrimary: #01AFC6;
-// $blueSecondary:#01AFC6;
 $black: #29332E;
 $gray: #F2F2F2;
 $graysecond: #808080;
-
-
-$fontSizeSmallest: 0.8rem;
-$fontSizeSmaller: 0.9rem;
-$fontSizeSmall: 1rem;
-$fontSizeRegular: 1.1rem;
-$fontSizeLarge: 1.2rem;
-$fontSizeLarger: 1.3rem;
-$fontSizeLargerPlus: 1.4rem;
-$fontSizeLargest: 1.5rem;
-
-$fontW_reguler: 400;
-$fontW_medium: 600;
-$fontW_bold: 800;
-
-//media size
 $mobile: 480px;
 $miniTab: 768px;
 $tablet: 992px;
 $desktop: 1280px;
 $large: 1366px;
 
-$max-width:1400px
+/* fontSize tokens */
+$fontSize-smallest: 0.8rem;
+$fontSize-smaller: 0.9rem;
+$fontSize-small: 1rem;
+$fontSize-regular: 1.1rem;
+$fontSize-large: 1.2rem;
+$fontSize-larger: 1.3rem;
+$fontSize-largerPlus: 1.4rem;
+$fontSize-largest: 1.5rem;
+
+/* fontFamily tokens */
+$fontFamily-heading-0: "Playfair Display";
+$fontFamily-heading-1: serif;
+$fontFamily-body-0: "Montserrat";
+$fontFamily-body-1: sans-serif;
+
+/* max-width tokens */
+$max-width: 1400px;
+
+/* fontWeight tokens */
+$fontWeight-reguler: 400;
+$fontWeight-medium: 600;
+$fontWeight-bold: 800;

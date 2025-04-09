@@ -2,14 +2,14 @@
 @use 'sass:color';
 
 .header {
-  font-size: vars.$fontSizeSmaller;
+  font-size: vars.$fontSize-smaller;
   margin-bottom: 4rem;
 
   @media (min-width: 1500px) {
     max-width: vars.$max-width;
     margin-left: auto;
     margin-right: auto;
-    font-size: vars.$fontSizeRegular;
+    font-size: vars.$fontSize-regular;
   }
 
   .subRouteIcon,
@@ -34,7 +34,7 @@
       display: flex;
       align-items: center;
       gap: 15px;
-      font-weight: vars.$fontW_medium;
+      font-weight: vars.$fontWeight-medium;
       a{
         align-items: center;
         white-space-collapse: preserve;

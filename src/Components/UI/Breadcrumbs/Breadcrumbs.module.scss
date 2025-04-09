@@ -1,8 +1,8 @@
 @use '@styles/variables' as vars;
 .breadcrumb {
-    font-size: vars.$fontSizeLarge;
+    font-size: vars.$fontSize-large;
     margin-bottom: 1rem;
-    font-weight: vars.$fontW_medium;
+    font-weight: vars.$fontWeight-medium;
   }
   
   .breadcrumb ul {

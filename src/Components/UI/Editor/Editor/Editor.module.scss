@@ -37,8 +37,8 @@
       gap: 0.5rem;
       width: 40%;
       label,.contentLabel{
-        font-size: vars.$fontSizeRegular ;
-        font-weight: vars.$fontW_medium;
+        font-size: vars.$fontSize-regular ;
+        font-weight: vars.$fontWeight-medium;
       }
     }
   }
@@ -51,7 +51,7 @@
 
     input,
     .selectField {
-      font-size: vars.$fontSizeRegular;
+      font-size: vars.$fontSize-regular;
       width: 100%;
       padding: 0.5rem 0.75rem;
       border-radius: 10px;
@@ -90,7 +90,7 @@
 
 
   .inputField {
-    font-size: vars.$fontSizeRegular;
+    font-size: vars.$fontSize-regular;
     width: 100%;
     max-height: 90vh;
     border-radius: 10px;
@@ -125,7 +125,7 @@
 
     .submit,
     .cancel {
-      font-size: vars.$fontSizeRegular;
+      font-size: vars.$fontSize-regular;
       border-radius: 10px;
       border: none;
       color: white;
@@ -202,8 +202,8 @@
   }
 
   .switchLabel {
-    font-size: vars.$fontSizeRegular;
-    font-weight: vars.$fontW_medium;
+    font-size: vars.$fontSize-regular;
+    font-weight: vars.$fontWeight-medium;
     color: #333;
   }
 }

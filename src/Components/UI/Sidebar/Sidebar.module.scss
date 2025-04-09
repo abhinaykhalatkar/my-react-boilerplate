@@ -62,13 +62,13 @@
     color: vars.$white;
     text-decoration: none;
     margin-bottom: 20px;
-    font-size: vars.$fontSizeLarge;
+    font-size: vars.$fontSize-large;
 
     @media (min-width: vars.$miniTab) {
-      font-size: vars.$fontSizeLargest;
+      font-size: vars.$fontSize-largest;
     }
 
-    font-weight: vars.$fontW_medium;
+    font-weight: vars.$fontWeight-medium;
     transition: background-color 0.3s ease,
     color 0.3s ease,
     transform 0.3s ease;

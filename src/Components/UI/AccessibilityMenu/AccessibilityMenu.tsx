@@ -4,7 +4,7 @@ import { FaAnglesRight, FaUniversalAccess } from "react-icons/fa6";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "@Store/store";
 import { increaseFontSize, decreaseFontSize } from "@Store/accessibilitySlice";
-
+import DarkModeToggle from '@UI/Buttons/DarkModeToggle/DarkModeToggleBtn';
 export default function AccessibilityMenu() {
   const [isOpen, setIsOpen] = useState(false);
   // Local font level state for display (range 1-5)
@@ -39,13 +39,15 @@ export default function AccessibilityMenu() {
       <div className={`menu-content ${isOpen ? "open" : ""}`}>
         <div
           onClick={toggleMenu}
-          className="close_Icon"
+          className="h-full close_Icon border-r-2 pr-1"
           title="close accessibility menu"
           aria-label="close accessibility menu"
         >
           <FaAnglesRight />
         </div>
-        <div className="font-size-func">
+        <div className="justify-items-center mb-1">
+                <DarkModeToggle/>
+                <div className="font-size-func">
           <div className="circle" onClick={() => adjustFontSize(false)}>
             <span className="hor-line"></span>
           </div>
@@ -55,6 +57,9 @@ export default function AccessibilityMenu() {
             <span className="ver-line"></span>
           </div>
         </div>
+                
+        </div>
+      
       </div>
     </div>
   );

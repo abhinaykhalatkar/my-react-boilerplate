@@ -21,7 +21,7 @@ const Header: React.FC = () => {
       {displaySize.isTablet || displaySize.isMobile ? (
         <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
       ) : (
-        <header className={styles.header}>
+        <header className={`${styles.header} container self-center`}>
           <div className={styles.topBar}>
             <div className={styles.actions}>
               <Link to="/gallery" className={`${styles.actionLink} flex`}>

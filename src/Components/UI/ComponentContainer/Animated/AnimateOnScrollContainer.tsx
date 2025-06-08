@@ -8,7 +8,8 @@ export type ScrollDirection =
   | 'scroll-right'
   | 'scroll-up'
   | 'scroll-down'
-  | 'scroll-fade';
+  | 'scroll-fade'
+  | 'scroll-scale-up';
 
 interface AnimateOnScrollContainerProps {
   children: React.ReactNode;
@@ -16,6 +17,7 @@ interface AnimateOnScrollContainerProps {
   startOffset?: number; // from 0 to 1
   disableOnMobile?: boolean;
   disableOnTablet?: boolean;
+  className?: string;
 
 }
 
@@ -25,6 +27,7 @@ const AnimateOnScrollContainer: React.FC<AnimateOnScrollContainerProps> = ({
   startOffset = 0.1,
   disableOnMobile = true,
   disableOnTablet = false,
+  className
 }) => {
   const ref = useRef(null);
 
@@ -60,10 +63,14 @@ const AnimateOnScrollContainer: React.FC<AnimateOnScrollContainerProps> = ({
       y: useTransform(smoothProgress, [0, 1], [`${shift}`, '0%']),
     },
     'scroll-down': {
-      y: useTransform(smoothProgress, [0, 1], [`-${shift}`, '0%']),
+      y: useTransform(smoothProgress, [0, 1], [`-${shift}`, '10%']),
     },
     'scroll-fade': {
       opacity: useTransform(smoothProgress, [0, 1], [0, 1]),
+    },
+    'scroll-scale-up': {
+      opacity: useTransform(smoothProgress, [0, 1], [0.90,1]),
+      scale: useTransform(smoothProgress, [0, 1], [1.1, 1.15]), // Starts slightly smaller, scales to full
     },
   };
 
@@ -79,8 +86,8 @@ const AnimateOnScrollContainer: React.FC<AnimateOnScrollContainerProps> = ({
   }
 
   return (
-    <div ref={ref}>
-      {(animationDisabledOnMobile||animationDisabledOnTablet) ? (
+    <div ref={ref} className={className}>
+      {(animationDisabledOnMobile || animationDisabledOnTablet) ? (
         <div>{children}</div>
       ) : (
         <motion.div style={style}>

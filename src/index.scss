@@ -1,7 +1,7 @@
 @use '@styles/variables' as vars;
 
 // Then import Tailwind’s directives
-@import "@styles/tailwind.scss";
+@use '@styles/tailwind' as *;
 
 // Then import Tailwind separately here (after @use)
 
@@ -10,32 +10,58 @@
 
 
 ::-webkit-scrollbar {
-  width: 8px; /* Width of the scrollbar */
+  width: 8px;
+  /* Width of the scrollbar */
 }
 
 ::-webkit-scrollbar-track {
-  background: vars.$white; /* Background of the track */
-  border-radius: 10px; /* Rounded corners */
+  background: vars.$white;
+  /* Background of the track */
+  border-radius: 10px;
+  /* Rounded corners */
 }
 
 ::-webkit-scrollbar-thumb {
-  background: vars.$white; /* Color of the scrollbar */
-  border-radius: 10px; /* Rounded corners */
+  background: vars.$white;
+  /* Color of the scrollbar */
+  border-radius: 10px;
+  /* Rounded corners */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: vars.$black; /* Color when hovered */
+  background: vars.$black;
+  /* Color when hovered */
 }
 
 /* For Firefox */
 * {
-  scrollbar-width: thin; /* Thin scrollbar */
-  scrollbar-color:vars.$black vars.$white ; /* Scrollbar color and track color */
+  scrollbar-width: thin;
+  /* Thin scrollbar */
+  scrollbar-color: vars.$black vars.$white ;
+  /* Scrollbar color and track color */
+
 }
-html, body, #root {
+
+html,
+body,
+#root {
+  @apply text-text-light;
+
+  &.dark {
+    * {
+      //  @apply text-text-dark;
+    }
+  }
+
   height: 100%;
   width: 100%;
+  line-height: 1.75rem;
+
+  // h1{
+  //  line-height: 4rem;
+  // }
 }
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -45,6 +71,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -ms-overflow-style: -ms-autohiding-scrollbar;
   color: vars.$black;
+
+  div{
+    break-inside: avoid-column;
+}
 }
 
 code {
@@ -52,4 +82,47 @@ code {
     monospace;
 }
 
+html.dark {
+  header {
+    a {
+      color: vars.$bg-light;
 
+      & svg {
+        color: vars.$brand-light;
+      }
+
+      &[aria-current="page"] {
+        color: vars.$text-light !important;
+        background-color: vars.$bg-subtle !important;
+      }
+    }
+  }
+}
+
+
+#AppContent.grayscale {
+  filter: grayscale(1) !important;
+}
+#AppContent.grayscale .no-grayscale {
+  filter: none !important;
+}
+// Pause all animations and transitions
+#AppContent.pause-animations * {
+  animation: none !important;
+  transition: none !important;
+}
+
+// Cursor enlargement
+#AppContent.big-cursor * {
+  cursor: url("./Assets/cursor.svg"), pointer !important; // or use a big default cursor
+}
+#AppContent.big-cursor {
+  cursor: url("./Assets/cursor.svg"), pointer !important;
+}
+
+// Hide all images
+#AppContent.hide-images picture,
+#AppContent.hide-images [role="img"],
+#AppContent.hide-images .bg-img {
+  display: none !important;
+}

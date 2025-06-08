@@ -20,15 +20,16 @@ const App: React.FC = () => {
     document.documentElement.style.fontSize = `${fontSizeMag}px`;
   }, [fontSizeMag]);
   return (
-    <div className="App min-h-screen">
-      <ResponsiveUpdaterOnResize/>
+    <div className="App min-h-screen flex flex-col dark:bg-bg-dark dark:text-text-darkContentText overflow-y-hidden" id='AppContent'>
+
+      <ResponsiveUpdaterOnResize />
       {/* <EditorMain/> */}
       <CookieConsentForm />
       {/* git test */}
       <ScrollToTopFunction />
       <AccessibilityMenu />
       <Header />
-      <div className='flex-grow'>
+      <div className='flex-grow '>
         <AppRoutes />
       </div>
       <Footer />

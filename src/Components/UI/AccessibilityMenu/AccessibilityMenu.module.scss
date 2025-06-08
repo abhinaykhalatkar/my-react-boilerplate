@@ -1,0 +1,19 @@
+@use '@styles/variables' as vars;
+.acessiblityFunctions {
+
+
+  >* {
+width: 100%;
+
+justify-content: center;
+&:not(:last-child) {
+      border-bottom: 1px solid vars.$accent-borderLight;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.75rem;
+
+      .dark & {
+        border-bottom: 1px solid vars.$accent-borderDark;
+      }
+    }
+  }
+}

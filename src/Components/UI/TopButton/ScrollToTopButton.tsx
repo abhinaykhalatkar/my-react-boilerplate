@@ -1,4 +1,4 @@
-"use client";
+
 import React, { useState, useEffect } from "react";
 import styles from "./ScrollToTopButton.module.scss";
 import { FaAnglesUp } from "react-icons/fa6";
@@ -49,10 +49,21 @@ const ScrollToTopButton: React.FC = () => {
   }, []);
 
   return isVisible ? (
-    <button onClick={scrollToTop} className={styles.scrollToTop} title="Go to the top of the page"
-      aria-label="Go to the top of the page">
-      <FaAnglesUp />
+
+    <button
+      onClick={scrollToTop}
+      className="
+        fixed right-5 bottom-20 
+        bg-brand-light text-white
+        rounded-lg shadow-lg w-12 h-12 flex items-center justify-center
+        opacity-70 hover:opacity-100 transition-opacity duration-300 z-8
+      "
+      aria-label="Scroll to top"
+      title="Scroll to top"
+    >
+      <FaAnglesUp className="text-xl" />
     </button>
+
   ) : null;
 };
 
